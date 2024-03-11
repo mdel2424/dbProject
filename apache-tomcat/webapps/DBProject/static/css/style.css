@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+header, footer {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 10px 0;
+}
+
+#searchForm {
+    margin: 20px 0;
+}
+
+#searchForm label, #searchForm input, #searchForm button {
+    margin: 5px;
+}
