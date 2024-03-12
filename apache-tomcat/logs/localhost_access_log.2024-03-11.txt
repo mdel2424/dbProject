@@ -7,3 +7,9 @@
 0:0:0:0:0:0:0:1 - - [11/Mar/2024:15:57:45 -0400] "GET /DBProject/static/css/style.css HTTP/1.1" 200 331
 0:0:0:0:0:0:0:1 - - [11/Mar/2024:15:57:50 -0400] "GET /DBProject/?checkInDate=2024-03-20 HTTP/1.1" 200 846
 0:0:0:0:0:0:0:1 - - [11/Mar/2024:15:57:50 -0400] "GET /DBProject/static/css/style.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [11/Mar/2024:22:00:51 -0400] "GET /DBProject/ HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [11/Mar/2024:22:00:51 -0400] "GET /DBProject/static/css/style.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [11/Mar/2024:22:01:02 -0400] "GET /DBProject/hotelchains HTTP/1.1" 404 777
+0:0:0:0:0:0:0:1 - - [11/Mar/2024:23:39:55 -0400] "GET /DBProject/ HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [11/Mar/2024:23:39:55 -0400] "GET /DBProject/static/css/style.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [11/Mar/2024:23:40:01 -0400] "GET /DBProject/HotelServlet HTTP/1.1" 500 1267
