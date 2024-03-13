@@ -10,3 +10,4 @@
 0:0:0:0:0:0:0:1 - - [12/Mar/2024:20:20:20 -0400] "GET /DBProject/ HTTP/1.1" 304 -
 0:0:0:0:0:0:0:1 - - [12/Mar/2024:20:20:27 -0400] "GET /DBProject/?checkInDate=&checkOutDate=&roomCapacity=&roomSize=&hotelChain=hilton&hotelCategory=4-star&hotelCapacityMin=&hotelCapacityMax=&roomPriceMin=45&roomPriceMax=39 HTTP/1.1" 200 2290
 0:0:0:0:0:0:0:1 - - [12/Mar/2024:20:20:32 -0400] "GET /DBProject/?checkInDate=&checkOutDate=&roomCapacity=&roomSize=&hotelChain=hilton&hotelCategory=4-star&hotelCapacityMin=&hotelCapacityMax=&roomPriceMin=&roomPriceMax= HTTP/1.1" 200 2290
+0:0:0:0:0:0:0:1 - - [12/Mar/2024:23:25:17 -0400] "GET /DBProject/ HTTP/1.1" 500 1376

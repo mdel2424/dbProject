@@ -11,16 +11,16 @@ CREATE TABLE Client (
     FullName VARCHAR(255),
     "Address" VARCHAR(255),
     RegistrationDate DATE,
-    PRIMARY KEY ('SSN')
+    PRIMARY KEY ("SSN")
 );
 
 CREATE TABLE Reservation (
     ReservationID INTEGER,
     CheckInDate DATE,
     CheckOutDate DATE,
-    PRIMARY KEY ('ReservationID'),
-    FOREIGN KEY ('RoomID'),
-    FOREIGN KEY ('ClientID')
+    PRIMARY KEY ("ReservationID"),
+    FOREIGN KEY ("RoomID"),
+    FOREIGN KEY ("ClientID")
 );
 
 CREATE TABLE BOOKING (
@@ -28,9 +28,9 @@ CREATE TABLE BOOKING (
     "Status" VARCHAR(255),
     StartDate DATE,
     EndDate DATE,
-    PRIMARY KEY ('BookingID'),
-    FOREIGN KEY ('RoomID'),
-    FOREIGN KEY ('ClientID')
+    PRIMARY KEY ("BookingID"),
+    FOREIGN KEY ("RoomID"),
+    FOREIGN KEY ("ClientID")
 );
 
 CREATE TABLE Employee (
@@ -38,8 +38,8 @@ CREATE TABLE Employee (
     FullName VARCHAR(255),
     "Address" VARCHAR(255),
     "Role" VARCHAR(255),
-    PRIMARY KEY ('SSN'),
-    FOREIGN KEY ('HotelID')
+    PRIMARY KEY ("SSN"),
+    FOREIGN KEY ("HotelID")
 );
 
 CREATE TABLE Hotel (
@@ -49,8 +49,8 @@ CREATE TABLE Hotel (
     "Address" VARCHAR(255),
     ContactEmails VARCHAR(255),
     PhoneNumber VARCHAR(255),
-    PRIMARY KEY ('HotelID'),
-    FOREIGN KEY ('ChainID')
+    PRIMARY KEY ("HotelID"),
+    FOREIGN KEY ("ChainID")
 );
 
 CREATE TABLE Room (
@@ -60,6 +60,6 @@ CREATE TABLE Room (
     Capacity VARCHAR(255),
     Extendable VARCHAR(255),
     Amenities VARCHAR(255),
-    PRIMARY KEY ('RoomID'),
-    FOREIGN KEY ('HotelID')
+    PRIMARY KEY ("RoomID"),
+    FOREIGN KEY ("HotelID")
 );
