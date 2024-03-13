@@ -20,9 +20,8 @@ public class HomeServlet extends HttpServlet {
 
         List<HotelChain> hotelChains = hotelChainDAO.getAllHotelChains(); 
         for (HotelChain hC: hotelChains) {
-            System.out.println(hC);
+            response.getWriter().write(hC.getHQAddress()+"  haha   \n");
         }
 
-        response.getWriter().write("Welcome to the Home Page!");
     }
 }
