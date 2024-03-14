@@ -19,36 +19,9 @@ public class HotelChainDAO {
     public void init() {
     }
 
+    // No clue what these do or if we even need them..
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getServletPath();
-
-        // try {
-        //     switch (action) {
-        //         case "/new":
-        //             getAllHotelChains(request, response);
-        //             break;
-        //         case "/insert":
-        //             insertEmployee(request, response);
-        //             break;
-        //         case "/delete":
-        //             deleteEmployee(request, response);
-        //             break;
-        //         case "/edit":
-        //             showEditForm(request, response);
-        //             break;
-        //         case "/update":
-        //             updateEmployee(request, response);
-        //             break;
-        //         case "/list":
-        //             listEmployees(request, response);
-        //             break;
-        //         default:
-        //             listEmployees(request, response);
-        //             break;
-        //     }
-        // } catch (Exception ex) {
-        //     throw new ServletException(ex);
-        // }
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -59,10 +32,13 @@ public class HotelChainDAO {
         List<HotelChain> hotelChains = new ArrayList<>();
         String sql = "SELECT * FROM HotelChain";
         
+        // Open a connection with the database and talk to the data !
         try (Connection conn = DBConnection.getConnection();
+            // PreparedStatements protect from sql injections
              PreparedStatement pstmt = conn.prepareStatement(sql);
              ResultSet rs = pstmt.executeQuery()) {
     
+            // Iterate through the returned columns
             while (rs.next()) {
                 HotelChain hotelChain = new HotelChain();
                 hotelChain.setChainId(rs.getInt("ChainId"));
@@ -76,10 +52,12 @@ public class HotelChainDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        // Return list of HotelChain
         return hotelChains;
     }
 
     public String getAllHotelChainsJson() {
+        // This is what is ultimately called in the DataServlet, since better to work with json on the web (in our case) (dont quote me on that)
         List<HotelChain> hotelChains = getAllHotelChains();
         Gson gson = new Gson();
         return gson.toJson(hotelChains);

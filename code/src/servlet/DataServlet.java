@@ -7,6 +7,7 @@ import jakarta.servlet.annotation.WebServlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+// This WebServlet will be called by the js in index.html, which will return the json formatted table view
 @WebServlet("/getData")
 public class DataServlet extends HttpServlet {
     private HotelChainDAO hotelChainDAO;

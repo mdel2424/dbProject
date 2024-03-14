@@ -4,6 +4,11 @@
     <title>Hotel Search</title>
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
     <script>
+        // talks to DataServlet to fetch the hotelChain names and populate the hotelChain dropdown
+        // To scale this and use this for many database calls, ask chatgpt what is best practice
+        //          Prob create a js function externally that takes as arg what you want to get (e.x. loadData('getAllHotelChains'))
+        //          Have to figure out how to acheive this through the DataServlet. Ask chat for best practice
+        // Also, for security, the ./getData page should be unnacessible for the user
         function loadData() {
             fetch('./getData')
                 .then(response => response.json())
@@ -41,6 +46,8 @@
             <input type="number" id="roomSize" name="roomSize">
             <br><br>
             <label for="hotelChain">Hotel Chain:</label>
+
+            <!-- Refer to this dropdown, notice how the id is used in the js document.getElementById('hotelChain'); -->
             <select name="hotelChain" id="hotelChain"></select>
             <br><br>
             <label for="hotelCategory">Hotel Category:</label>
