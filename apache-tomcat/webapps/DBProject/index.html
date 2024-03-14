@@ -3,8 +3,24 @@
 <head>
     <title>Hotel Search</title>
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <script>
+        function loadData() {
+            fetch('./getData')
+                .then(response => response.json())
+                .then(data => {
+                    const selectElement = document.getElementById('hotelChain');
+                    data.forEach(hotelChain => {
+                        let option = document.createElement('option');
+                        option.value = hotelChain.chainId;
+                        option.textContent = hotelChain.hotelChainName; 
+                        selectElement.appendChild(option);
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
 </head>
-<body>
+<body onload="loadData()">
     <div class="container">
         <header>
             <!-- Include header.html -->
@@ -25,10 +41,7 @@
             <input type="number" id="roomSize" name="roomSize">
             <br><br>
             <label for="hotelChain">Hotel Chain:</label>
-            <select name="hotelChain" id="hotelChain">
-                <option value="hilton">Hilton</option>
-                <option value="ritz">Ritz</option>
-            </select>
+            <select name="hotelChain" id="hotelChain"></select>
             <br><br>
             <label for="hotelCategory">Hotel Category:</label>
             <select name="hotelCategory" id="hotelCategory">

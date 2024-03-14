@@ -8,6 +8,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.gson.Gson;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -68,12 +70,19 @@ public class HotelChainDAO {
                 hotelChain.setHQAddress(rs.getString("HQAddress"));
                 hotelChain.setContactEmails(rs.getString("ContactEmails"));
                 hotelChain.setPhoneNumber(rs.getString("PhoneNumber"));
+                hotelChain.setHotelChainName(rs.getString("HotelChainName"));
                 hotelChains.add(hotelChain);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return hotelChains;
+    }
+
+    public String getAllHotelChainsJson() {
+        List<HotelChain> hotelChains = getAllHotelChains();
+        Gson gson = new Gson();
+        return gson.toJson(hotelChains);
     }
 
     public void deleteHotelChain(String id) {

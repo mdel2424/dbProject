@@ -6,13 +6,15 @@ public class HotelChain {
     private String HQAddress;
     private String contactEmails;
     private String phoneNumber;
+    private String hotelChainName;
 
-    public HotelChain(int chainId, int nHotels, String HQAddress, String contactEmails, String phoneNumber) {
+    public HotelChain(int chainId, int nHotels, String HQAddress, String contactEmails, String phoneNumber, String hotelChainName) {
         this.chainId = chainId;
         this.nHotels = nHotels;
         this.HQAddress = HQAddress;
         this.contactEmails = contactEmails;
         this.phoneNumber = phoneNumber;
+        this.hotelChainName = hotelChainName;
     }
 
     public HotelChain() {
@@ -38,6 +40,9 @@ public class HotelChain {
     public String getPhoneNumber() {
         return phoneNumber;
     }
+    public String getHotelChainName() {
+        return hotelChainName;
+    }
 
     public void setChainId(int chainId) {
         this.chainId = chainId;
@@ -57,6 +62,9 @@ public class HotelChain {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+    public void setHotelChainName(String hotelChainName) {
+        this.hotelChainName = hotelChainName;
     }
 
     // Constructors, getters, and setters

@@ -24,6 +24,7 @@ public class HotelDAO {
                 hotel.setStarRating(rs.getString("starRating"));
                 hotel.setNRooms(rs.getInt("nRooms"));
                 hotel.setAddress(rs.getString("address"));
+                hotel.setHotelName(rs.getString("hotelName"));
                 hotel.setContactEmails(rs.getString("contactEmails"));
                 hotel.setPhoneNumber(rs.getString("phoneNumber"));
                 hotel.setChainId(rs.getInt("chainId"));
@@ -49,6 +50,7 @@ public class HotelDAO {
                 hotel.setStarRating(rs.getString("starRating"));
                 hotel.setNRooms(rs.getInt("nRooms"));
                 hotel.setAddress(rs.getString("address"));
+                hotel.setHotelName(rs.getString("hotelName"));
                 hotel.setContactEmails(rs.getString("contactEmails"));
                 hotel.setPhoneNumber(rs.getString("phoneNumber"));
                 hotel.setChainId(rs.getInt("chainId"));

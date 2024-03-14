@@ -3,7 +3,8 @@ CREATE TABLE HotelChain (
     NHotels INTEGER,
     HQAddress VARCHAR(255),
     ContactEmails VARCHAR(255),
-    PhoneNumber VARCHAR(255)
+    PhoneNumber VARCHAR(255),
+    HotelChainName VARCHAR(255)
 );
 
 CREATE TABLE Client (
@@ -47,6 +48,7 @@ CREATE TABLE Hotel (
     StarRating VARCHAR(255),
     NRooms INTEGER,
     "Address" VARCHAR(255),
+    HotelName VARCHAR(255),
     ContactEmails VARCHAR(255),
     PhoneNumber VARCHAR(255),
     PRIMARY KEY ("HotelID"),
