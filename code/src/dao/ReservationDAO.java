@@ -1,8 +1,5 @@
 package dao;
 
-import model.Reservation;
-import util.DBConnection;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,7 +7,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReservationDAO {
+import com.google.gson.Gson;
+
+import model.Reservation;
+import util.DBConnection;
+
+public class ReservationDAO implements GenericDAO{
 
     public List<Reservation> getAllReservations() {
         List<Reservation> reservations = new ArrayList<>();
@@ -86,6 +88,13 @@ public class ReservationDAO {
     public void deleteReservation(String id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'deleteReservation'");
+    }
+
+    @Override
+    public String getAllJson() {
+        List<Reservation> reservations = getAllReservations();
+        Gson gson = new Gson();
+        return gson.toJson(reservations);
     }
 
     // Similarly, implement updateReservation and deleteReservation methods

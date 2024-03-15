@@ -1,13 +1,19 @@
 package dao;
 
-import model.Client;
-import util.DBConnection;
-
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClientDAO {
+import com.google.gson.Gson;
+
+import model.Client;
+import util.DBConnection;
+
+public class ClientDAO implements GenericDAO{
 
     private Connection connection;
 
@@ -103,6 +109,13 @@ public class ClientDAO {
     public Client getClient(int id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getClient'");
+    }
+
+    @Override
+    public String getAllJson() {
+        List<Client> clients = getAllClients();
+        Gson gson = new Gson();
+        return gson.toJson(clients);
     }
 
 }

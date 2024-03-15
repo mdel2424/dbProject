@@ -1,0 +1,2 @@
+1. Create a database called "dbProject"
+2. Open a query tool for this database, and run the two sql files found in the queryTool folder, schema first, then data

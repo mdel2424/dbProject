@@ -1,13 +1,18 @@
 package dao;
 
-import model.Hotel;
-import util.DBConnection;
-
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HotelDAO {
+import com.google.gson.Gson;
+
+import model.Hotel;
+import util.DBConnection;
+
+public class HotelDAO implements GenericDAO{
 
     public Hotel getHotelById(int hotelId) {
         Hotel hotel = new Hotel();
@@ -61,6 +66,14 @@ public class HotelDAO {
             e.printStackTrace();
         }
         return hotels;
+    }
+
+    @Override
+    public String getAllJson() {
+        // TODO Auto-generated method stub
+        List<Hotel> hotels = getAllHotels();
+        Gson gson = new Gson();
+        return gson.toJson(hotels);
     }
 
     // Implement other CRUD operations (create, update, delete) here.

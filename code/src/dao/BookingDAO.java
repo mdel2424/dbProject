@@ -1,13 +1,17 @@
 package dao;
 
-import model.Booking;
-import util.DBConnection;
-
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookingDAO {
+import model.Booking;
+import util.DBConnection;
+
+public class BookingDAO implements GenericDAO{
 
     // Method to retrieve all bookings
     public List<Booking> getAllBookings() {
@@ -97,6 +101,12 @@ public class BookingDAO {
     public Booking getBooking(int id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getBooking'");
+    }
+
+    @Override
+    public String getAllJson() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getAllJson'");
     }
     
     // Additional methods to handle bookings can be added here

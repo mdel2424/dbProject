@@ -1,32 +1,22 @@
 package dao;
 
-import model.HotelChain;
-import util.DBConnection;
-
-import java.io.IOException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.Gson;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import model.HotelChain;
+import util.DBConnection;
 
-public class HotelChainDAO {
+public class HotelChainDAO implements GenericDAO{
 
     public void init() {
     }
 
-    // No clue what these do or if we even need them..
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getServletPath();
-    }
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
-    }
 
     public List<HotelChain> getAllHotelChains() {
         List<HotelChain> hotelChains = new ArrayList<>();
@@ -56,7 +46,7 @@ public class HotelChainDAO {
         return hotelChains;
     }
 
-    public String getAllHotelChainsJson() {
+    public String getAllJson() {
         // This is what is ultimately called in the DataServlet, since better to work with json on the web (in our case) (dont quote me on that)
         List<HotelChain> hotelChains = getAllHotelChains();
         Gson gson = new Gson();
