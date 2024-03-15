@@ -12,7 +12,7 @@ import com.google.gson.Gson;
 import model.Hotel;
 import util.DBConnection;
 
-public class HotelDAO implements GenericDAO{
+public class HotelDAO{
 
     public Hotel getHotelById(int hotelId) {
         Hotel hotel = new Hotel();
@@ -41,7 +41,7 @@ public class HotelDAO implements GenericDAO{
         return hotel;
     }
 
-    public List<Hotel> getAllHotels() {
+    public String getAllHotels() {
         List<Hotel> hotels = new ArrayList<>();
         String sql = "SELECT * FROM hotel";
 
@@ -65,16 +65,31 @@ public class HotelDAO implements GenericDAO{
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return hotels;
-    }
-
-    @Override
-    public String getAllJson() {
-        // TODO Auto-generated method stub
-        List<Hotel> hotels = getAllHotels();
         Gson gson = new Gson();
         return gson.toJson(hotels);
     }
 
-    // Implement other CRUD operations (create, update, delete) here.
+    public String getHotelsByChainId(int chainId) {
+        List<Hotel> hotels = new ArrayList<>();
+        String sql = "SELECT * FROM hotel WHERE chainId = ?";
+    
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+    
+            pstmt.setInt(1, chainId);
+            ResultSet rs = pstmt.executeQuery();
+    
+            while (rs.next()) {
+                // Populate hotel object and add to list
+                Hotel hotel = new Hotel();
+                // Set properties from ResultSet
+                hotels.add(hotel);
+            }
+    
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        Gson gson = new Gson();
+        return gson.toJson(hotels);
+    }
 }

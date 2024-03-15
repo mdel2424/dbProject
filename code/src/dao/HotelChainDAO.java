@@ -12,13 +12,13 @@ import com.google.gson.Gson;
 import model.HotelChain;
 import util.DBConnection;
 
-public class HotelChainDAO implements GenericDAO{
+public class HotelChainDAO{
 
     public void init() {
     }
 
 
-    public List<HotelChain> getAllHotelChains() {
+    public String getAllHotelChains() {
         List<HotelChain> hotelChains = new ArrayList<>();
         String sql = "SELECT * FROM HotelChain";
         
@@ -43,12 +43,6 @@ public class HotelChainDAO implements GenericDAO{
             e.printStackTrace();
         }
         // Return list of HotelChain
-        return hotelChains;
-    }
-
-    public String getAllJson() {
-        // This is what is ultimately called in the DataServlet, since better to work with json on the web (in our case) (dont quote me on that)
-        List<HotelChain> hotelChains = getAllHotelChains();
         Gson gson = new Gson();
         return gson.toJson(hotelChains);
     }

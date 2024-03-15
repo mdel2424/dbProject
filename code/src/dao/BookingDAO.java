@@ -11,7 +11,7 @@ import java.util.List;
 import model.Booking;
 import util.DBConnection;
 
-public class BookingDAO implements GenericDAO{
+public class BookingDAO{
 
     // Method to retrieve all bookings
     public List<Booking> getAllBookings() {
@@ -102,12 +102,4 @@ public class BookingDAO implements GenericDAO{
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getBooking'");
     }
-
-    @Override
-    public String getAllJson() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAllJson'");
-    }
-    
-    // Additional methods to handle bookings can be added here
 }

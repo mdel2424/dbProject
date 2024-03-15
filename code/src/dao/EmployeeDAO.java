@@ -8,12 +8,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.gson.Gson;
-
 import model.Employee;
 import util.DBConnection;
 
-public class EmployeeDAO implements GenericDAO{
+public class EmployeeDAO{
 
     public Employee getEmployeeBySSN(String ssn) {
         Employee employee = null;
@@ -63,13 +61,4 @@ public class EmployeeDAO implements GenericDAO{
         
         return employees;
     }
-
-    @Override
-    public String getAllJson() {
-        List<Employee> employees = getAllEmployees();
-        Gson gson = new Gson();
-        return gson.toJson(employees);
-    }
-
-    // Implement create, update, delete methods as needed
 }

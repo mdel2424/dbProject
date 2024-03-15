@@ -7,12 +7,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.gson.Gson;
-
 import model.Room;
 import util.DBConnection;
 
-public class RoomDAO implements GenericDAO{
+public class RoomDAO{
 
     public Room getRoomById(int roomId) {
         Room room = null;
@@ -77,12 +75,4 @@ public class RoomDAO implements GenericDAO{
         throw new UnsupportedOperationException("Unimplemented method 'deleteRoom'");
     }
 
-    @Override
-    public String getAllJson() {
-        List<Room> rooms = getAllRooms();
-        Gson gson = new Gson();
-        return gson.toJson(rooms);
-    }
-
-    // Methods to insert, update, and delete rooms will follow a similar pattern.
 }

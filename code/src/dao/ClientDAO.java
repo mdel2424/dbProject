@@ -8,12 +8,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.gson.Gson;
-
 import model.Client;
 import util.DBConnection;
 
-public class ClientDAO implements GenericDAO{
+public class ClientDAO{
 
     private Connection connection;
 
@@ -110,12 +108,4 @@ public class ClientDAO implements GenericDAO{
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getClient'");
     }
-
-    @Override
-    public String getAllJson() {
-        List<Client> clients = getAllClients();
-        Gson gson = new Gson();
-        return gson.toJson(clients);
-    }
-
 }
