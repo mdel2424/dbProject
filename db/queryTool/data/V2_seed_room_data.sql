@@ -1,5 +1,5 @@
 -- For hotelId 1
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '300$', '2', 'none', 'Wi-Fi, TV', 1),
 ('minor scratches', '350$', '3', 'roll-away bed', 'Balcony, Coffee maker', 1),
@@ -8,7 +8,7 @@ VALUES
 ('scratched furniture', '380$', '3', 'none', 'Ocean view, Jacuzzi tub', 1);
 
 -- For hotelId 2
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '320$', '2', 'none', 'Wi-Fi, TV', 2),
 ('chipped tiles', '360$', '3', 'roll-away bed', 'Balcony, Coffee maker', 2),
@@ -17,7 +17,7 @@ VALUES
 ('scratched furniture', '400$', '3', 'none', 'Ocean view, Jacuzzi tub', 2);
 
 -- For hotelId 3
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '310$', '2', 'none', 'Wi-Fi, TV', 3),
 ('chipped tiles', '355$', '3', 'roll-away bed', 'Balcony, Coffee maker', 3),
@@ -26,7 +26,7 @@ VALUES
 ('scratched furniture', '390$', '3', 'none', 'Ocean view, Jacuzzi tub', 3);
 
 -- For hotelId 4
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '315$', '2', 'none', 'Wi-Fi, TV', 4),
 ('chipped tiles', '360$', '3', 'roll-away bed', 'Balcony, Coffee maker', 4),
@@ -35,7 +35,7 @@ VALUES
 ('scratched furniture', '395$', '3', 'none', 'Ocean view, Jacuzzi tub', 4);
 
 -- For hotelId 5
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '320$', '2', 'none', 'Wi-Fi, TV', 5),
 ('chipped tiles', '365$', '3', 'roll-away bed', 'Balcony, Coffee maker', 5),
@@ -44,7 +44,7 @@ VALUES
 ('scratched furniture', '400$', '3', 'none', 'Ocean view, Jacuzzi tub', 5);
 
 -- For hotelId 6
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '325$', '2', 'none', 'Wi-Fi, TV', 6),
 ('chipped tiles', '370$', '3', 'roll-away bed', 'Balcony, Coffee maker', 6),
@@ -53,7 +53,7 @@ VALUES
 ('scratched furniture', '405$', '3', 'none', 'Ocean view, Jacuzzi tub', 6);
 
 -- For hotelId 7
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '330$', '2', 'none', 'Wi-Fi, TV', 7),
 ('chipped tiles', '375$', '3', 'roll-away bed', 'Balcony, Coffee maker', 7),
@@ -62,7 +62,7 @@ VALUES
 ('scratched furniture', '410$', '3', 'none', 'Ocean view, Jacuzzi tub', 7);
 
 -- For hotelId 8
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '335$', '2', 'none', 'Wi-Fi, TV', 8),
 ('chipped tiles', '380$', '3', 'roll-away bed', 'Balcony, Coffee maker', 8),
@@ -71,7 +71,7 @@ VALUES
 ('scratched furniture', '415$', '3', 'none', 'Ocean view, Jacuzzi tub', 8);
 
 -- For hotelId 9
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '340$', '2', 'none', 'Wi-Fi, Smart TV, Rain Shower', 9),
 ('scuffed walls', '380$', '3', 'roll-away bed', 'Balcony, Espresso Machine, City View', 9),
@@ -80,7 +80,7 @@ VALUES
 ('chic furniture', '420$', '3', 'none', 'Ocean View, Deep Soaking Tub, Champagne Bar', 9);
 
 -- For hotelId 10
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '345$', '2', 'none', 'Wi-Fi, Flat-screen TV, Rainfall Shower', 10),
 ('chipped paint', '390$', '3', 'roll-away bed', 'Balcony, Nespresso Machine, Mountain View', 10),
@@ -89,7 +89,7 @@ VALUES
 ('modern design', '430$', '3', 'none', 'Ocean View, Deep Soaking Tub, Wine Fridge', 10);
 
 -- For hotelId 11
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '350$', '2', 'none', 'Wi-Fi, Smart TV, Rain Shower', 11),
 ('cracked walls', '400$', '3', 'roll-away bed', 'Balcony, Coffee Maker, Mountain View', 11),
@@ -98,7 +98,7 @@ VALUES
 ('contemporary style', '440$', '3', 'none', 'Ocean View, Deep Soaking Tub, Champagne Bar', 11);
 
 -- For hotelId 12
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '355$', '2', 'none', 'Wi-Fi, Flat-screen TV, Rainfall Shower', 12),
 ('peeling paint', '410$', '3', 'roll-away bed', 'Balcony, Nespresso Machine, Mountain View', 12),
@@ -107,7 +107,7 @@ VALUES
 ('sleek design', '450$', '3', 'none', 'Ocean View, Deep Soaking Tub, Wine Fridge', 12);
 
 -- For hotelId 13
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '360$', '2', 'none', 'Wi-Fi, Smart TV, Rain Shower', 13),
 ('scuffed walls', '420$', '3', 'roll-away bed', 'Balcony, Coffee Maker, Mountain View', 13),
@@ -116,7 +116,7 @@ VALUES
 ('modern elegance', '460$', '3', 'none', 'River View, Deep Soaking Tub, Wine Fridge', 13);
 
 -- For hotelId 14
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '365$', '2', 'none', 'Wi-Fi, Flat-screen TV, Rainfall Shower', 14),
 ('chipped paint', '430$', '3', 'roll-away bed', 'Balcony, Nespresso Machine, Mountain View', 14),
@@ -125,7 +125,7 @@ VALUES
 ('contemporary design', '470$', '3', 'none', 'Ocean View, Deep Soaking Tub, Champagne Bar', 14);
 
 -- For hotelId 15
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '370$', '2', 'none', 'Wi-Fi, Smart TV, Rain Shower', 15),
 ('cracked walls', '440$', '3', 'roll-away bed', 'Balcony, Coffee Maker, Mountain View', 15),
@@ -134,7 +134,7 @@ VALUES
 ('sleek style', '480$', '3', 'none', 'Ocean View, Deep Soaking Tub, Champagne Bar', 15);
 
 -- For hotelId 16
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '375$', '2', 'none', 'Wi-Fi, Flat-screen TV, Rainfall Shower', 16),
 ('peeling paint', '450$', '3', 'roll-away bed', 'Balcony, Nespresso Machine, Mountain View', 16),
@@ -143,7 +143,7 @@ VALUES
 ('chic decor', '490$', '3', 'none', 'Ocean View, Deep Soaking Tub, Wine Fridge', 16);
 
 -- For hotelId 17
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '380$', '2', 'none', 'Wi-Fi, Smart TV, Rain Shower', 17),
 ('scuffed walls', '460$', '3', 'roll-away bed', 'Balcony, Coffee Maker, City View', 17),
@@ -152,7 +152,7 @@ VALUES
 ('modern elegance', '500$', '3', 'none', 'River View, Deep Soaking Tub, Wine Fridge', 17);
 
 -- For hotelId 18
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '385$', '2', 'none', 'Wi-Fi, Flat-screen TV, Rainfall Shower', 18),
 ('chipped paint', '470$', '3', 'roll-away bed', 'Balcony, Nespresso Machine, Mountain View', 18),
@@ -161,7 +161,7 @@ VALUES
 ('contemporary design', '510$', '3', 'none', 'Ocean View, Deep Soaking Tub, Champagne Bar', 18);
 
 -- For hotelId 19
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '390$', '2', 'none', 'Wi-Fi, Smart TV, Rain Shower', 19),
 ('cracked walls', '480$', '3', 'roll-away bed', 'Balcony, Coffee Maker, Mountain View', 19),
@@ -170,7 +170,7 @@ VALUES
 ('sleek style', '520$', '3', 'none', 'River View, Deep Soaking Tub, Champagne Bar', 19);
 
 -- For hotelId 20
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '395$', '2', 'none', 'Wi-Fi, Flat-screen TV, Rainfall Shower', 20),
 ('peeling paint', '490$', '3', 'roll-away bed', 'Balcony, Nespresso Machine, Mountain View', 20),
@@ -179,7 +179,7 @@ VALUES
 ('chic decor', '530$', '3', 'none', 'Ocean View, Deep Soaking Tub, Wine Fridge', 20);
 
 -- For hotelId 21
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '150$', '2', 'none', 'Wi-Fi, Smart TV, Rain Shower', 21),
 ('scuffed walls', '180$', '3', 'roll-away bed', 'Balcony, Coffee Maker, City View', 21),
@@ -188,7 +188,7 @@ VALUES
 ('modern elegance', '210$', '3', 'none', 'River View, Deep Soaking Tub, Wine Fridge', 21);
 
 -- For hotelId 22
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '160$', '2', 'none', 'Wi-Fi, Flat-screen TV, Rainfall Shower', 22),
 ('chipped paint', '190$', '3', 'roll-away bed', 'Balcony, Nespresso Machine, Mountain View', 22),
@@ -197,7 +197,7 @@ VALUES
 ('contemporary design', '200$', '3', 'none', 'Ocean View, Deep Soaking Tub, Champagne Bar', 22);
 
 -- For hotelId 23
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '170$', '2', 'none', 'Wi-Fi, Smart TV, Rain Shower', 23),
 ('cracked walls', '200$', '3', 'roll-away bed', 'Balcony, Coffee Maker, Mountain View', 23),
@@ -206,7 +206,7 @@ VALUES
 ('sleek style', '210$', '3', 'none', 'River View, Deep Soaking Tub, Champagne Bar', 23);
 
 -- For hotelId 24
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '180$', '2', 'none', 'Wi-Fi, Flat-screen TV, Rainfall Shower', 24),
 ('peeling paint', '210$', '3', 'roll-away bed', 'Balcony, Nespresso Machine, Mountain View', 24),
@@ -215,7 +215,7 @@ VALUES
 ('chic decor', '220$', '3', 'none', 'Ocean View, Deep Soaking Tub, Wine Fridge', 24);
 
 -- For hotelId 25
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '155$', '2', 'none', 'Wi-Fi, Smart TV, Rain Shower', 25),
 ('scuffed walls', '185$', '3', 'roll-away bed', 'Balcony, Coffee Maker, City View', 25),
@@ -224,7 +224,7 @@ VALUES
 ('modern elegance', '215$', '3', 'none', 'River View, Deep Soaking Tub, Wine Fridge', 25);
 
 -- For hotelId 26
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '165$', '2', 'none', 'Wi-Fi, Flat-screen TV, Rainfall Shower', 26),
 ('chipped paint', '195$', '3', 'roll-away bed', 'Balcony, Nespresso Machine, Mountain View', 26),
@@ -233,7 +233,7 @@ VALUES
 ('contemporary design', '205$', '3', 'none', 'Ocean View, Deep Soaking Tub, Champagne Bar', 26);
 
 -- For hotelId 27
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '175$', '2', 'none', 'Wi-Fi, Smart TV, Rain Shower', 27),
 ('cracked walls', '205$', '3', 'roll-away bed', 'Balcony, Coffee Maker, Mountain View', 27),
@@ -242,7 +242,7 @@ VALUES
 ('sleek style', '215$', '3', 'none', 'River View, Deep Soaking Tub, Champagne Bar', 27);
 
 -- For hotelId 28
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '185$', '2', 'none', 'Wi-Fi, Flat-screen TV, Rainfall Shower', 28),
 ('peeling paint', '215$', '3', 'roll-away bed', 'Balcony, Nespresso Machine, Mountain View', 28),
@@ -252,7 +252,7 @@ VALUES
 
 
 -- For hotelId 29
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '160$', '2', 'none', 'Wi-Fi, Smart TV, Rain Shower', 29),
 ('scuffed walls', '190$', '3', 'roll-away bed', 'Balcony, Coffee Maker, City View', 29),
@@ -261,7 +261,7 @@ VALUES
 ('modern elegance', '220$', '3', 'none', 'River View, Deep Soaking Tub, Wine Fridge', 29);
 
 -- For hotelId 30
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '170$', '2', 'none', 'Wi-Fi, Flat-screen TV, Rainfall Shower', 30),
 ('chipped paint', '200$', '3', 'roll-away bed', 'Balcony, Nespresso Machine, Mountain View', 30),
@@ -270,7 +270,7 @@ VALUES
 ('contemporary design', '210$', '3', 'none', 'Ocean View, Deep Soaking Tub, Champagne Bar', 30);
 
 -- For hotelId 31
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '180$', '2', 'none', 'Wi-Fi, Smart TV, Rain Shower', 31),
 ('cracked walls', '210$', '3', 'roll-away bed', 'Balcony, Coffee Maker, Mountain View', 31),
@@ -279,7 +279,7 @@ VALUES
 ('sleek style', '220$', '3', 'none', 'River View, Deep Soaking Tub, Champagne Bar', 31);
 
 -- For hotelId 32
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '190$', '2', 'none', 'Wi-Fi, Flat-screen TV, Rainfall Shower', 32),
 ('peeling paint', '220$', '3', 'roll-away bed', 'Balcony, Nespresso Machine, Mountain View', 32),
@@ -288,7 +288,7 @@ VALUES
 ('chic decor', '230$', '3', 'none', 'Ocean View, Deep Soaking Tub, Wine Fridge', 32);
 
 -- For hotelId 33
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '155$', '2', 'none', 'Wi-Fi, Smart TV, Rain Shower', 33),
 ('scuffed walls', '185$', '3', 'roll-away bed', 'Balcony, Coffee Maker, City View', 33),
@@ -297,7 +297,7 @@ VALUES
 ('modern elegance', '215$', '3', 'none', 'River View, Deep Soaking Tub, Wine Fridge', 33);
 
 -- For hotelId 34
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '160$', '2', 'none', 'Wi-Fi, Flat-screen TV, Rainfall Shower', 34),
 ('chipped paint', '190$', '3', 'roll-away bed', 'Balcony, Nespresso Machine, Mountain View', 34),
@@ -306,7 +306,7 @@ VALUES
 ('contemporary design', '205$', '3', 'none', 'Ocean View, Deep Soaking Tub, Champagne Bar', 34);
 
 -- For hotelId 35
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '175$', '2', 'none', 'Wi-Fi, Smart TV, Rain Shower', 35),
 ('cracked walls', '205$', '3', 'roll-away bed', 'Balcony, Coffee Maker, Mountain View', 35),
@@ -315,7 +315,7 @@ VALUES
 ('sleek style', '215$', '3', 'none', 'River View, Deep Soaking Tub, Champagne Bar', 35);
 
 -- For hotelId 36
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '185$', '2', 'none', 'Wi-Fi, Flat-screen TV, Rainfall Shower', 36),
 ('peeling paint', '215$', '3', 'roll-away bed', 'Balcony, Nespresso Machine, Mountain View', 36),
@@ -325,7 +325,7 @@ VALUES
 
 
 -- For hotelId 37
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '150$', '2', 'none', 'Wi-Fi, Smart TV, Rain Shower', 37),
 ('scuffed walls', '180$', '3', 'roll-away bed', 'Balcony, Coffee Maker, City View', 37),
@@ -334,7 +334,7 @@ VALUES
 ('modern elegance', '210$', '3', 'none', 'River View, Deep Soaking Tub, Wine Fridge', 37);
 
 -- For hotelId 38
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '160$', '2', 'none', 'Wi-Fi, Flat-screen TV, Rainfall Shower', 38),
 ('chipped paint', '190$', '3', 'roll-away bed', 'Balcony, Nespresso Machine, Mountain View', 38),
@@ -343,7 +343,7 @@ VALUES
 ('contemporary design', '205$', '3', 'none', 'Ocean View, Deep Soaking Tub, Champagne Bar', 38);
 
 -- For hotelId 39
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '170$', '2', 'none', 'Wi-Fi, Smart TV, Rain Shower', 39),
 ('cracked walls', '200$', '3', 'roll-away bed', 'Balcony, Coffee Maker, Mountain View', 39),
@@ -352,7 +352,7 @@ VALUES
 ('sleek style', '215$', '3', 'none', 'River View, Deep Soaking Tub, Champagne Bar', 39);
 
 -- For hotelId 40
-INSERT INTO Room (Damages, Price, Capacity, Extendables, Amenities, HotelId)
+INSERT INTO Room (Damages, Price, Capacity, Extendable, Amenities, HotelId)
 VALUES
 ('none', '180$', '2', 'none', 'Wi-Fi, Flat-screen TV, Rainfall Shower', 40),
 ('peeling paint', '210$', '3', 'roll-away bed', 'Balcony, Nespresso Machine, Mountain View', 40),
