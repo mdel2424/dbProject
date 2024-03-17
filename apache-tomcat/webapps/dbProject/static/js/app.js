@@ -1,3 +1,14 @@
+document.addEventListener('DOMContentLoaded', function() {
+    // Your existing window.onload content
+    loadData('hotelChain', 'hotelChain', item => ({ 
+        text: item.hotelChainName, 
+        value: item.chainId 
+    }));
+
+    // Event listeners
+    document.getElementById('searchForm').addEventListener('submit', performSearch);
+});
+
 function loadData(daoType, elementId, mapFunction) {
     fetch('./getData?daoType=' + daoType)
         .then(response => response.json())
@@ -17,43 +28,40 @@ function populateDropdown(data, elementId, mapFunction) {
     });
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Your existing window.onload content
-    loadData('hotelChain', 'hotelChain', item => ({ 
-        text: item.hotelChainName, 
-        value: item.chainId 
-    }));
-
-    document.getElementById('searchForm').onsubmit = performSearch;
-});
-
-function performSearch() {
+function performSearch(event) {
+    event.preventDefault(); // Prevents traditional form submission
     var hotelChainId = document.getElementById('hotelChain').value;
     
-    fetch('/getData?hotelChainId=' + hotelChainId)
+    fetch('./getData?hotelChainId=' + hotelChainId)
     .then(response => response.json())
     .then(hotels => {
         var resultsSection = document.getElementById('searchResults');
         resultsSection.innerHTML = ''; // Clear previous results
-
+        
         // Create and append elements for each hotel
         hotels.forEach(hotel => {
-            let hotelDiv = document.createElement('div');
-            hotelDiv.className = 'hotel';
-
+            let hotelCard = document.createElement('div');
+            hotelCard.className = 'hotel-card';
+            
             // Add hotel details here. Modify as per your Hotel model attributes
-            hotelDiv.innerHTML = `<h3>${hotel.hotelName}</h3>
-                                  <p>Star Rating: ${hotel.starRating}</p>
-                                  <p>Address: ${hotel.address}</p>
-                                  <p>Number of Rooms: ${hotel.nRooms}</p>
-                                  <p>Contact: ${hotel.contactEmails}, ${hotel.phoneNumber}</p>`;
+            hotelCard.innerHTML = `
+                <div class="hotel-header">
+                    <h3>${hotel.hotelName}</h3>
+                </div>
+                <div class="hotel-body">
+                    <p>Star Rating: ${hotel.starRating}</p>
+                    <p>Address: ${hotel.address}</p>
+                    <p>Number of Rooms: ${hotel.nRooms}</p>
+                    <p>Contact: ${hotel.contactEmails}, ${hotel.phoneNumber}</p>
+                </div>`;
 
-            resultsSection.appendChild(hotelDiv);
+            resultsSection.appendChild(hotelCard);
         });
     })
     .catch((error) => {
         console.error('Error:', error);
     });
-
+    
     return false; // Prevents traditional form submission
 }
+

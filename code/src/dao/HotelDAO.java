@@ -82,7 +82,17 @@ public class HotelDAO{
             while (rs.next()) {
                 // Populate hotel object and add to list
                 Hotel hotel = new Hotel();
-                // Set properties from ResultSet
+
+                hotel.setAddress(rs.getString("Address"));
+                hotel.setChainId(rs.getInt("chainid"));
+                hotel.setContactEmails(rs.getString("contactemails"));
+                hotel.setHotelId(rs.getInt("hotelid"));
+                hotel.setHotelName(rs.getString("hotelname"));
+                hotel.setNRooms(rs.getInt("nrooms"));
+                hotel.setPhoneNumber(rs.getString("phonenumber"));
+                hotel.setStarRating(rs.getString("starrating"));
+
+
                 hotels.add(hotel);
             }
     

@@ -1,4 +1,4 @@
-INSERT INTO Hotel (StarRating, NRooms, Address, HotelName, ContactEmails, PhoneNumber, ChainID) 
+INSERT INTO Hotel (StarRating, NRooms, "Address", HotelName, ContactEmails, PhoneNumber, ChainID) 
 VALUES 
 -- Ritz (chainid=1)
 ('5-star', 100, '123 Beach Ave, Miami, FL', 'Ritz Miami Beach', 'contact@ritzbeach.com', '305-555-1122', 1),

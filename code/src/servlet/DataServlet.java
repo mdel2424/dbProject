@@ -28,10 +28,11 @@ public class DataServlet extends HttpServlet {
         } else if (hotelChainIdStr != null && !hotelChainIdStr.isEmpty()) {
             int hotelChainId = Integer.parseInt(hotelChainIdStr);
             jsonData = hotelDao.getHotelsByChainId(hotelChainId); // Method to fetch hotels by chain ID
+            System.out.println("!!!!!"+jsonData);
         } else {
             jsonData = hotelDao.getAllHotels(); // Method to fetch all hotels
         }
-
+        
         PrintWriter out = response.getWriter();
         out.print(jsonData);
         out.flush();
