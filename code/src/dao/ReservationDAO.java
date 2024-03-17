@@ -58,33 +58,23 @@ public class ReservationDAO{
         return reservation;
     }
 
-    public boolean addReservation(Reservation reservation) {
-        boolean status = false;
-        String sql = "INSERT INTO Reservation (CheckInDate, CheckOutDate, RoomID, ClientID) VALUES (?, ?, ?, ?)";
+    // public boolean addReservation(Reservation reservation) {
+    //     boolean status = false;
+    //     String sql = "INSERT INTO Reservation (CheckInDate, CheckOutDate, RoomID, ClientID) VALUES (?, ?, ?, ?)";
         
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+    //     try (Connection conn = DBConnection.getConnection();
+    //          PreparedStatement pstmt = conn.prepareStatement(sql)) {
             
-            pstmt.setDate(1, new java.sql.Date(reservation.getCheckInDate().getTime()));
-            pstmt.setDate(2, new java.sql.Date(reservation.getCheckOutDate().getTime()));
-            pstmt.setInt(3, reservation.getRoomId());
-            pstmt.setInt(4, reservation.getClientId());
+    //         pstmt.setDate(1, new java.sql.Date(reservation.getCheckInDate().getTime()));
+    //         pstmt.setDate(2, new java.sql.Date(reservation.getCheckOutDate().getTime()));
+    //         pstmt.setInt(3, reservation.getRoomId());
+    //         pstmt.setInt(4, reservation.getClientId());
             
-            int rowsAffected = pstmt.executeUpdate();
-            status = rowsAffected > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return status;
-    }
-
-    public Reservation getReservation(String id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getReservation'");
-    }
-
-    public void deleteReservation(String id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteReservation'");
-    }
+    //         int rowsAffected = pstmt.executeUpdate();
+    //         status = rowsAffected > 0;
+    //     } catch (SQLException e) {
+    //         e.printStackTrace();
+    //     }
+    //     return status;
+    // }
 }

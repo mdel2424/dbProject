@@ -1,3 +1,4 @@
+// Ran on website load
 document.addEventListener('DOMContentLoaded', function() {
     // Your existing window.onload content
     loadData('hotelChain', 'hotelChain', item => ({ 
@@ -9,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('searchForm').addEventListener('submit', performSearch);
 });
 
+// Automatically performed on page load
 function loadData(daoType, elementId, mapFunction) {
     fetch('./getData?daoType=' + daoType)
         .then(response => response.json())
@@ -16,6 +18,7 @@ function loadData(daoType, elementId, mapFunction) {
         .catch(error => console.error('Error:', error));
 }
 
+// Used to populate dropdown with a map (e.x. hotelname -> hotelid), which is useful information to store in the dropdown, hidden
 function populateDropdown(data, elementId, mapFunction) {
     const selectElement = document.getElementById(elementId);
     selectElement.innerHTML = ''; // Clear existing options
@@ -28,6 +31,7 @@ function populateDropdown(data, elementId, mapFunction) {
     });
 }
 
+// Performed when search button is clicked, for now just used for getting all hotels under a hotel chain
 function performSearch(event) {
     event.preventDefault(); // Prevents traditional form submission
     var hotelChainId = document.getElementById('hotelChain').value;

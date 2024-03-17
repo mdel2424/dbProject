@@ -59,53 +59,35 @@ public class ClientDAO{
         return null;
     }
 
-    public boolean insertClient(Client client) {
-        String sql = "INSERT INTO Client (SSN, FullName, Address, RegistrationDate) VALUES (?, ?, ?, ?)";
-        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setString(1, client.getSsn());
-            preparedStatement.setString(2, client.getFullName());
-            preparedStatement.setString(3, client.getAddress());
-            preparedStatement.setDate(4, new java.sql.Date(client.getRegistrationDate().getTime()));
+    // public boolean insertClient(Client client) {
+    //     String sql = "INSERT INTO Client (SSN, FullName, Address, RegistrationDate) VALUES (?, ?, ?, ?)";
+    //     try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+    //         preparedStatement.setString(1, client.getSsn());
+    //         preparedStatement.setString(2, client.getFullName());
+    //         preparedStatement.setString(3, client.getAddress());
+    //         preparedStatement.setDate(4, new java.sql.Date(client.getRegistrationDate().getTime()));
             
-            int affectedRows = preparedStatement.executeUpdate();
-            return affectedRows > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
+    //         int affectedRows = preparedStatement.executeUpdate();
+    //         return affectedRows > 0;
+    //     } catch (SQLException e) {
+    //         e.printStackTrace();
+    //     }
+    //     return false;
+    // }
 
-    public boolean updateClient(Client client) {
-        String sql = "UPDATE Client SET FullName = ?, Address = ?, RegistrationDate = ? WHERE SSN = ?";
-        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setString(1, client.getFullName());
-            preparedStatement.setString(2, client.getAddress());
-            preparedStatement.setDate(3, new java.sql.Date(client.getRegistrationDate().getTime()));
-            preparedStatement.setString(4, client.getSsn());
+    // public boolean updateClient(Client client) {
+    //     String sql = "UPDATE Client SET FullName = ?, Address = ?, RegistrationDate = ? WHERE SSN = ?";
+    //     try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+    //         preparedStatement.setString(1, client.getFullName());
+    //         preparedStatement.setString(2, client.getAddress());
+    //         preparedStatement.setDate(3, new java.sql.Date(client.getRegistrationDate().getTime()));
+    //         preparedStatement.setString(4, client.getSsn());
             
-            int affectedRows = preparedStatement.executeUpdate();
-            return affectedRows > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-    public boolean deleteClient(String id) {
-        String sql = "DELETE FROM Client WHERE SSN = ?";
-        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setString(1, id);
-            
-            int affectedRows = preparedStatement.executeUpdate();
-            return affectedRows > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-    public Client getClient(int id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getClient'");
-    }
+    //         int affectedRows = preparedStatement.executeUpdate();
+    //         return affectedRows > 0;
+    //     } catch (SQLException e) {
+    //         e.printStackTrace();
+    //     }
+    //     return false;
+    // }
 }

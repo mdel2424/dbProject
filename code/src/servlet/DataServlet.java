@@ -17,22 +17,25 @@ public class DataServlet extends HttpServlet {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
+        // Get the arguments that are passed in the request
         String hotelChainIdStr = request.getParameter("hotelChainId");
         String daoType = request.getParameter("daoType");
         HotelDAO hotelDao = new HotelDAO();
         HotelChainDAO hotelChainDao = new HotelChainDAO();
         String jsonData;
 
+        // Create the json response depending on the request
         if ("hotelChain".equals(daoType)) {
             jsonData = hotelChainDao.getAllHotelChains(); // Method to fetch hotel chains
         } else if (hotelChainIdStr != null && !hotelChainIdStr.isEmpty()) {
             int hotelChainId = Integer.parseInt(hotelChainIdStr);
             jsonData = hotelDao.getHotelsByChainId(hotelChainId); // Method to fetch hotels by chain ID
-            System.out.println("!!!!!"+jsonData);
         } else {
+            // Default, kinda pointless 
             jsonData = hotelDao.getAllHotels(); // Method to fetch all hotels
         }
         
+        // Respond with the json object
         PrintWriter out = response.getWriter();
         out.print(jsonData);
         out.flush();

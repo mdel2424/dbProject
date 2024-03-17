@@ -13,11 +13,6 @@ import model.HotelChain;
 import util.DBConnection;
 
 public class HotelChainDAO{
-
-    public void init() {
-    }
-
-
     public String getAllHotelChains() {
         List<HotelChain> hotelChains = new ArrayList<>();
         String sql = "SELECT * FROM HotelChain";
@@ -46,17 +41,4 @@ public class HotelChainDAO{
         Gson gson = new Gson();
         return gson.toJson(hotelChains);
     }
-
-    public void deleteHotelChain(String id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteHotelChain'");
-    }
-
-    public HotelChain getHotelChain(String id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getHotelChain'");
-    }
-    
-
-    // Add methods for Create, Update, and Delete operations.
 }

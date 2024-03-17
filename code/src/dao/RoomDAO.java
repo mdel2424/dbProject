@@ -64,15 +64,4 @@ public class RoomDAO{
         }
         return rooms;
     }
-
-    public Room getRoom(String id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getRoom'");
-    }
-
-    public void deleteRoom(String id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteRoom'");
-    }
-
 }
