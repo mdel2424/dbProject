@@ -1,19 +1,19 @@
 package model;
 
-import java.sql.Array;
+import java.util.List;
 
 public class Room {
     private int roomId;
-    private Array damages;
+    private List<String> damages;
     private String view;
     private int price;
     private String capacity;
     private int roomNumber;
     private boolean extendable;
-    private Array amenities;
+    private List<String> amenities;
     private int hotelId;
 
-    public Room(int roomId, Array damages, String view, int price, String capacity, int roomNumber, boolean extendable,Array amenities,
+    public Room(int roomId, List<String> damages, String view, int price, String capacity, int roomNumber, boolean extendable, List<String> amenities,
                  int hotelId) {
         this.roomId = roomId;
         this.damages = damages;
@@ -34,7 +34,7 @@ public class Room {
         this.roomId = roomId;
     }
 
-    public void setDamages(Array damages) {
+    public void setDamages(List<String> damages) {
         this.damages = damages;
     }
 
@@ -56,7 +56,7 @@ public class Room {
         this.extendable = extendable;
     }
 
-    public void setAmenities(Array array) {
+    public void setAmenities(List<String> array) {
         this.amenities = array;
     }
 
@@ -68,7 +68,7 @@ public class Room {
         return roomId;
     }
 
-    public Array getDamages() {
+    public List<String> getDamages() {
         return damages;
     }
 
@@ -90,8 +90,7 @@ public class Room {
         return extendable;
     }
 
-
-    public Array getAmenities() {
+    public List<String> getAmenities() {
         return amenities;
     }
 

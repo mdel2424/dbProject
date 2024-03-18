@@ -19,7 +19,6 @@ function loadData(elementId, mapFunction) {
 // Used to populate dropdown with a map (e.x. hotelname -> hotelid), which is useful information to store in the dropdown, hidden
 function populateDropdown(data, elementId, mapFunction) {
     const selectElement = document.getElementById(elementId);
-    selectElement.innerHTML = '';
     data.forEach(item => {
         let option = document.createElement('option');
         let optionData = mapFunction(item);
@@ -50,29 +49,32 @@ function performSearch(event) {
         var resultsSection = document.getElementById('searchResults');
         resultsSection.innerHTML = '';
         
-        rooms.forEach(room => {
-            let roomCard = document.createElement('div');
-            roomCard.className = 'room-card';
-            
-            // Modify according to your Room model attributes
-            roomCard.innerHTML = `
-                <div class="search-card">
-                <div class="search-header">
-                    <h3>Room Number: ${room.roomId}</h3>
-                </div>
-                <div class="search-body">
-                <p>Damages: ${room.damages}</p>
-                <p>View: ${room.view}</p>
-                <p>Price: ${room.price}</p>
-                <p>Capacity: ${room.capacity}</p>
-                <p>Extendable: ${room.extendable ? 'Yes' : 'No'}</p>
-                <p>Amenities: ${room.amenities}</p>
-                <p>HotelID: ${room.hotelId}</p>
-                </div>
-                </div>`;
+        if (rooms.length === 0 || rooms === '') { // Checking if the response is empty
+            resultsSection.innerHTML = '<p>No results. Try again.</p>';
+        } else {
+            rooms.forEach(room => {
+                let roomCard = document.createElement('div');
+                roomCard.className = 'room-card';
+                
+                roomCard.innerHTML = `
+                    <div class="search-card">
+                    <div class="search-header">
+                        <h3>Room Number: ${room.roomId}</h3>
+                    </div>
+                    <div class="search-body">
+                    <p>Damages: ${room.damages}</p>
+                    <p>View: ${room.view}</p>
+                    <p>Price: ${room.price}</p>
+                    <p>Capacity: ${room.capacity}</p>
+                    <p>Extendable: ${room.extendable ? 'Yes' : 'No'}</p>
+                    <p>Amenities: ${room.amenities}</p>
+                    <p>HotelID: ${room.hotelId}</p>
+                    </div>
+                    </div>`;
 
-            resultsSection.appendChild(roomCard);
-        });
+                resultsSection.appendChild(roomCard);
+            });
+        }
     })
     .catch((error) => {
         console.error('Error:', error);

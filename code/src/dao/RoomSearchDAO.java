@@ -1,10 +1,12 @@
 package dao;
 
+import java.sql.Array;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -28,15 +30,15 @@ public class RoomSearchDAO {
                 String checkInDate = arguments.get("checkInDate")[0];
                 String checkOutDate = arguments.get("checkOutDate")[0];
                 if (!first) sql.append(" AND ");
-                sql.append("R.RoomId NOT IN (SELECT RoomId FROM Booking WHERE (checkInDate <= '")
+                sql.append("R.RoomId NOT IN (SELECT RoomId FROM Booking WHERE (startdate <= '")
                     .append(checkOutDate)
-                    .append("' AND checkOutDate >= '")
+                    .append("' AND enddate >= '")
                     .append(checkInDate)
                     .append("'))");
 
-                sql.append(" AND R.RoomId NOT IN (SELECT RoomId FROM Reservation WHERE (startDate <= '")
+                sql.append(" AND R.RoomId NOT IN (SELECT RoomId FROM Reservation WHERE (checkindate <= '")
                     .append(checkOutDate)
-                    .append("' AND endDate >= '")
+                    .append("' AND checkoutdate >= '")
                     .append(checkInDate)
                     .append("'))");
 
@@ -91,13 +93,17 @@ public class RoomSearchDAO {
             while (rs.next()) {
                 Room room = new Room();
                 room.setRoomId(rs.getInt("RoomId"));
-                room.setDamages(rs.getArray("Damages"));
+                Array damagesArray = rs.getArray("Damages");
+                String[] damages = (String[]) damagesArray.getArray();
+                room.setDamages(Arrays.asList(damages));
                 room.setView(rs.getString("View"));
                 room.setPrice(rs.getInt("Price"));
                 room.setCapacity(rs.getString("Capacity"));
                 room.setRoomNumber(rs.getInt("RoomNumber"));
                 room.setExtendable(rs.getBoolean("Extendable"));
-                room.setAmenities((rs.getArray("amenities")));
+                Array amenitiesArray = rs.getArray("Amenities");
+                String[] amenities = (String[]) amenitiesArray.getArray();
+                room.setAmenities(Arrays.asList(amenities));
                 room.setHotelId(rs.getInt("HotelId"));
                 rooms.add(room);
             }

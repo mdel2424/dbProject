@@ -10,6 +10,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import util.Text;
 
 @WebServlet("/getRoom")
 public class RoomServlet extends HttpServlet {
@@ -24,7 +25,7 @@ public class RoomServlet extends HttpServlet {
 
         // Create the json response depending on the request
         jsonData = roomSearchDao.getRoomsFromQuery(arguments); // Method to fetch hotels by chain ID
-        
+
         // Respond with the json object
         PrintWriter out = response.getWriter();
         out.print(jsonData);

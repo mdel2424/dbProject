@@ -41,7 +41,7 @@ CREATE TABLE Room (
     Damages VARCHAR(255)[],
     View VARCHAR(255),
     Price INT,
-    Capacity VARCHAR(255),
+    Capacity INT,
     Extendable BOOLEAN,
     Amenities VARCHAR(255)[],
     RoomNumber INT,
