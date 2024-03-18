@@ -14,7 +14,8 @@ import util.DBConnection;
 
 public class HotelDAO{
 
-    public Hotel getHotelById(int hotelId) {
+    public Hotel getHotelById(String hotelIdS) {
+        int hotelId = Integer.parseInt(hotelIdS);
         Hotel hotel = new Hotel();
         String sql = "SELECT * FROM hotel WHERE hotelId = ?";
 
@@ -69,7 +70,8 @@ public class HotelDAO{
         return gson.toJson(hotels);
     }
 
-    public String getHotelsByChainId(int chainId) {
+    public String getHotelsByChainId(String chainIdS) {
+        int chainId = Integer.parseInt(chainIdS);
         List<Hotel> hotels = new ArrayList<>();
         String sql = "SELECT * FROM hotel WHERE chainId = ?";
     

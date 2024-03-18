@@ -25,12 +25,13 @@ public class RoomDAO{
             if (rs.next()) {
                 room = new Room();
                 room.setRoomId(rs.getInt("RoomId"));
-                room.setDamages(rs.getString("Damages"));
+                room.setDamages(rs.getArray("Damages"));
                 room.setView(rs.getString("View"));
-                room.setPrice(rs.getDouble("Price"));
+                room.setPrice(rs.getInt("Price"));
                 room.setCapacity(rs.getString("Capacity"));
-                room.setAircondition(rs.getBoolean("Aircondition"));
+                room.setRoomNumber(rs.getInt("RoomNumber"));
                 room.setExtendable(rs.getBoolean("Extendable"));
+                room.setAmenities((rs.getArray("amenities")));
                 room.setHotelId(rs.getInt("HotelId"));
             }
         } catch (SQLException e) {
@@ -50,12 +51,13 @@ public class RoomDAO{
             while (rs.next()) {
                 Room room = new Room();
                 room.setRoomId(rs.getInt("RoomId"));
-                room.setDamages(rs.getString("Damages"));
+                room.setDamages(rs.getArray("Damages"));
                 room.setView(rs.getString("View"));
-                room.setPrice(rs.getDouble("Price"));
+                room.setPrice(rs.getInt("Price"));
                 room.setCapacity(rs.getString("Capacity"));
-                room.setAircondition(rs.getBoolean("Aircondition"));
+                room.setRoomNumber(rs.getInt("RoomNumber"));
                 room.setExtendable(rs.getBoolean("Extendable"));
+                room.setAmenities((rs.getArray("amenities")));
                 room.setHotelId(rs.getInt("HotelId"));
                 rooms.add(room);
             }

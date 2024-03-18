@@ -3,7 +3,7 @@ CREATE TABLE HotelChain (
     ChainId SERIAL PRIMARY KEY,
     NHotels INTEGER,
     HQAddress VARCHAR(255),
-    ContactEmails VARCHAR(255),
+    ContactEmails VARCHAR(255)[],
     PhoneNumber VARCHAR(255),
     HotelChainName VARCHAR(255)
 );
@@ -17,11 +17,11 @@ CREATE TABLE Client (
 
 CREATE TABLE Hotel (
     HotelID SERIAL PRIMARY KEY,
-    StarRating VARCHAR(255),
+    StarRating INT,
     NRooms INTEGER,
     "Address" VARCHAR(255),
     HotelName VARCHAR(255),
-    ContactEmails VARCHAR(255),
+    ContactEmails VARCHAR(255)[],
     PhoneNumber VARCHAR(255),
 	ChainID INTEGER,
     FOREIGN KEY (ChainID) REFERENCES HotelChain
@@ -38,11 +38,13 @@ CREATE TABLE Employee (
 
 CREATE TABLE Room (
     RoomID SERIAL PRIMARY KEY,
-    Damages VARCHAR(255),
-    Price VARCHAR(255),
+    Damages VARCHAR(255)[],
+    View VARCHAR(255),
+    Price INT,
     Capacity VARCHAR(255),
-    Extendable VARCHAR(255),
-    Amenities VARCHAR(255),
+    Extendable BOOLEAN,
+    Amenities VARCHAR(255)[],
+    RoomNumber INT,
 	HotelID INT,
     FOREIGN KEY (HotelID) REFERENCES Hotel
 );

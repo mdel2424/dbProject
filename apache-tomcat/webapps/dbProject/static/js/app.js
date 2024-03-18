@@ -1,18 +1,16 @@
 // Ran on website load
 document.addEventListener('DOMContentLoaded', function() {
-    // Your existing window.onload content
-    loadData('hotelChain', 'hotelChain', item => ({ 
+    loadData('hotelChain', item => ({ 
         text: item.hotelChainName, 
         value: item.chainId 
     }));
-
     // Event listeners
     document.getElementById('searchForm').addEventListener('submit', performSearch);
 });
 
 // Automatically performed on page load
-function loadData(daoType, elementId, mapFunction) {
-    fetch('./getData?daoType=' + daoType)
+function loadData(elementId, mapFunction) {
+    fetch('./populateData')
         .then(response => response.json())
         .then(data => populateDropdown(data, elementId, mapFunction))
         .catch(error => console.error('Error:', error));
@@ -21,7 +19,7 @@ function loadData(daoType, elementId, mapFunction) {
 // Used to populate dropdown with a map (e.x. hotelname -> hotelid), which is useful information to store in the dropdown, hidden
 function populateDropdown(data, elementId, mapFunction) {
     const selectElement = document.getElementById(elementId);
-    selectElement.innerHTML = ''; // Clear existing options
+    selectElement.innerHTML = '';
     data.forEach(item => {
         let option = document.createElement('option');
         let optionData = mapFunction(item);
@@ -33,39 +31,53 @@ function populateDropdown(data, elementId, mapFunction) {
 
 // Performed when search button is clicked, for now just used for getting all hotels under a hotel chain
 function performSearch(event) {
-    event.preventDefault(); // Prevents traditional form submission
-    var hotelChainId = document.getElementById('hotelChain').value;
-    
-    fetch('./getData?hotelChainId=' + hotelChainId)
+    event.preventDefault();
+    let formElements = document.getElementById('searchForm').elements;
+    let queryString = '';
+
+    for (let element of formElements) {
+        if (element.name && element.value) {
+            if (queryString !== '') {
+                queryString += '&';
+            }
+            queryString += encodeURIComponent(element.name) + '=' + encodeURIComponent(element.value);
+        }
+    }
+
+    fetch('./getRoom?' + queryString)
     .then(response => response.json())
-    .then(hotels => {
+    .then(rooms => {
         var resultsSection = document.getElementById('searchResults');
-        resultsSection.innerHTML = ''; // Clear previous results
+        resultsSection.innerHTML = '';
         
-        // Create and append elements for each hotel
-        hotels.forEach(hotel => {
-            let hotelCard = document.createElement('div');
-            hotelCard.className = 'hotel-card';
+        rooms.forEach(room => {
+            let roomCard = document.createElement('div');
+            roomCard.className = 'room-card';
             
-            // Add hotel details here. Modify as per your Hotel model attributes
-            hotelCard.innerHTML = `
-                <div class="hotel-header">
-                    <h3>${hotel.hotelName}</h3>
+            // Modify according to your Room model attributes
+            roomCard.innerHTML = `
+                <div class="search-card">
+                <div class="search-header">
+                    <h3>Room Number: ${room.roomId}</h3>
                 </div>
-                <div class="hotel-body">
-                    <p>Star Rating: ${hotel.starRating}</p>
-                    <p>Address: ${hotel.address}</p>
-                    <p>Number of Rooms: ${hotel.nRooms}</p>
-                    <p>Contact: ${hotel.contactEmails}, ${hotel.phoneNumber}</p>
+                <div class="search-body">
+                <p>Damages: ${room.damages}</p>
+                <p>View: ${room.view}</p>
+                <p>Price: ${room.price}</p>
+                <p>Capacity: ${room.capacity}</p>
+                <p>Extendable: ${room.extendable ? 'Yes' : 'No'}</p>
+                <p>Amenities: ${room.amenities}</p>
+                <p>HotelID: ${room.hotelId}</p>
+                </div>
                 </div>`;
 
-            resultsSection.appendChild(hotelCard);
+            resultsSection.appendChild(roomCard);
         });
     })
     .catch((error) => {
         console.error('Error:', error);
     });
-    
-    return false; // Prevents traditional form submission
+
+    return false;
 }
 

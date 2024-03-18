@@ -1,24 +1,28 @@
 package model;
 
+import java.sql.Array;
+
 public class Room {
     private int roomId;
-    private String damages;
+    private Array damages;
     private String view;
-    private double price;
+    private int price;
     private String capacity;
-    private boolean aircondition;
+    private int roomNumber;
     private boolean extendable;
+    private Array amenities;
     private int hotelId;
 
-    public Room(int roomId, String damages, String view, double price, String capacity, boolean aircondition,
-            boolean extendable, int hotelId) {
+    public Room(int roomId, Array damages, String view, int price, String capacity, int roomNumber, boolean extendable,Array amenities,
+                 int hotelId) {
         this.roomId = roomId;
         this.damages = damages;
         this.view = view;
         this.price = price;
-        this.capacity = capacity;
-        this.aircondition = aircondition;
+        this.roomNumber = roomNumber;
         this.extendable = extendable;
+        this.capacity = capacity;
+        this.amenities = amenities;
         this.hotelId = hotelId;
     }
 
@@ -30,7 +34,7 @@ public class Room {
         this.roomId = roomId;
     }
 
-    public void setDamages(String damages) {
+    public void setDamages(Array damages) {
         this.damages = damages;
     }
 
@@ -38,20 +42,22 @@ public class Room {
         this.view = view;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
     public void setCapacity(String capacity) {
         this.capacity = capacity;
     }
-
-    public void setAircondition(boolean aircondition) {
-        this.aircondition = aircondition;
+    public void setRoomNumber(int roomNumber) {
+        this.roomNumber = roomNumber;
     }
-
     public void setExtendable(boolean extendable) {
         this.extendable = extendable;
+    }
+
+    public void setAmenities(Array array) {
+        this.amenities = array;
     }
 
     public void setHotelId(int hotelId) {
@@ -62,7 +68,7 @@ public class Room {
         return roomId;
     }
 
-    public String getDamages() {
+    public Array getDamages() {
         return damages;
     }
 
@@ -77,13 +83,16 @@ public class Room {
     public String getCapacity() {
         return capacity;
     }
-
-    public boolean isAircondition() {
-        return aircondition;
+    public int getRoomNumber() {
+        return roomNumber;
     }
-
     public boolean isExtendable() {
         return extendable;
+    }
+
+
+    public Array getAmenities() {
+        return amenities;
     }
 
     public int getHotelId() {

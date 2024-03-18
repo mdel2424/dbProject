@@ -4,36 +4,23 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import dao.HotelChainDAO;
-import dao.HotelDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/getData")
-public class DataServlet extends HttpServlet {
+@WebServlet("/populateData")
+public class PopulateServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
-        // Get the arguments that are passed in the request
-        String hotelChainIdStr = request.getParameter("hotelChainId");
-        String daoType = request.getParameter("daoType");
-        HotelDAO hotelDao = new HotelDAO();
         HotelChainDAO hotelChainDao = new HotelChainDAO();
         String jsonData;
 
         // Create the json response depending on the request
-        if ("hotelChain".equals(daoType)) {
-            jsonData = hotelChainDao.getAllHotelChains(); // Method to fetch hotel chains
-        } else if (hotelChainIdStr != null && !hotelChainIdStr.isEmpty()) {
-            int hotelChainId = Integer.parseInt(hotelChainIdStr);
-            jsonData = hotelDao.getHotelsByChainId(hotelChainId); // Method to fetch hotels by chain ID
-        } else {
-            // Default, kinda pointless 
-            jsonData = hotelDao.getAllHotels(); // Method to fetch all hotels
-        }
+        jsonData = hotelChainDao.getAllHotelChains(); // Method to fetch hotel chains
         
         // Respond with the json object
         PrintWriter out = response.getWriter();
