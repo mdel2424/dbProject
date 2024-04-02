@@ -69,10 +69,22 @@ function performSearch(event) {
                     <p>Extendable: ${room.extendable ? 'Yes' : 'No'}</p>
                     <p>Amenities: ${room.amenities}</p>
                     <p>HotelID: ${room.hotelId}</p>
+                    <button class = "bookRoomButton" data-room-id="${room.roomId}"> Book Room </button>
                     </div>
                     </div>`;
 
+
+
+
                 resultsSection.appendChild(roomCard);
+
+                // Add event listener to the dynamically created button
+                roomCard.querySelector('.bookRoomButton').addEventListener('click', function() {
+                    // Extract roomId from the button's data-room-id attribute
+                    let roomId = this.getAttribute('data-room-id');
+                    // Redirect to booking.html with roomId as a parameter
+                    window.location.href = 'booking.html?roomId=' + encodeURIComponent(roomId);
+                });               
             });
         }
     })
