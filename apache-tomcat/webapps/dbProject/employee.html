@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Page</title>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <script src="static/js/app.js"></script> 
+</head>
+<body>
+
+    <header>
+        <h1>Booking Management</h1>
+    </header>
+
+    <!-- Button container -->
+    <div class="button-container">
+        <!-- 'Customer' button using the transparent text button style -->
+        <button id="customerBtn" class="transparent-text-button">Customer</a>
+    </div>
+
+    <!-- Other content for the employee page goes here -->
+
+    <script>
+        // JavaScript to handle button click for "Employees Only"
+        document.getElementById('customerBtn').addEventListener('click', function() {
+            window.location.href = 'index.html'; // Redirects to the employee side
+        });
+    </script>
+</body>
+</html>
