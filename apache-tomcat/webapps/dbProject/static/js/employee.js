@@ -1,4 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize modal for Admin access
+    initializeAdminModal();
+
+    document.getElementById('customerBtn').addEventListener('click', function() {
+        window.location.href = 'index.html'; // Redirects to the index.html page
+    });
+    
+
     // Add event listener to the search form
     const searchForm = document.getElementById('bookingSearch');
     if (searchForm) {
@@ -6,6 +14,54 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+
+
+// Initialize modal functionality for Admin access
+function initializeAdminModal() {
+    var modal = document.getElementById("adminModal");
+    var btn = document.getElementById("adminBtn");
+    var span = document.getElementsByClassName("close")[0];
+    var adminIdInput = document.getElementById("adminId");
+
+    // When the Admin button is clicked, display the modal
+    if (btn) {
+        btn.onclick = function() {
+            modal.style.display = "block";
+        };
+    }
+
+    // When the close button (x) in the modal is clicked, hide the modal
+    if (span) {
+        span.onclick = function() {
+            modal.style.display = "none";
+            adminIdInput.value = ''; // Reset the admin ID input
+        };
+    }
+
+    // Also hide the modal if the user clicks outside of it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            adminIdInput.value = ''; // Reset the admin ID input
+        }
+    };
+
+    // Handle the admin ID form submission within the modal
+    var form = document.getElementById('adminIdForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the form from actually submitting
+        var adminIdInput = document.getElementById("adminId");
+        
+        // Check if the entered Admin ID is "1"
+        if (adminIdInput.value === "1") {
+            // Correct Admin ID entered, redirect to the admin page
+            window.location.href = 'unknown/admin.html';
+        } else {
+            // Incorrect Admin ID entered, show an error message
+            alert("User is not an admin");
+            adminIdInput.value = ''; // Optionally reset the input field
+        }
+    });
+}
 
 // Handle search form submission
 function performSearch(event) {
@@ -27,14 +83,14 @@ function performSearch(event) {
 }
 
 // Display search results
-function displaySearchResults(rooms) {
+function displaySearchResults(bookings) {
     var resultsSection = document.getElementById('bookingSearch');
     resultsSection.innerHTML = '';
 
-    if (rooms.length === 0 || rooms === '') {
+    if (!bookings.length) {
         resultsSection.innerHTML = '<p>No results. Try again.</p>';
     } else {
-        rooms.forEach(room => {
+        bookings.forEach(booking => {
             let bookingCard = document.createElement('div');
             bookingCard.className = 'room-card';
             bookingCard.innerHTML = `
@@ -50,48 +106,6 @@ function displaySearchResults(rooms) {
                 </div>`;
 
             resultsSection.appendChild(bookingCard);
-
-            bookingCard.querySelector('.bookRoomButton').addEventListener('click', function() {
-                let roomId = this.getAttribute('data-room-id');
-                window.location.href = 'CLogin.html?roomId=' + encodeURIComponent(roomId);
-            });               
         });
     }
 }
-
-// Unknown
-var modal = document.getElementById("adminModal");
-var btn = document.getElementById("adminBtn");
-var span = document.getElementsByClassName("close")[0];
-var form = document.getElementById("adminIdForm");
-var adminIdInput = document.getElementById("adminId");
-
-// Function to reset admin ID input
-function resetAdminIdInput() {
-    adminIdInput.value = '';
-}
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-    modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-    resetAdminIdInput(); // Reset the input field
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-        resetAdminIdInput(); // Reset the input field
-    }
-}
-
-// Handle form submission
-form.addEventListener('submit', function(event) {
-    resetAdminIdInput(); // Reset the input field
-    window.location.href = 'admin.html'; // Redirect to the admin page
-});
