@@ -30,7 +30,6 @@ public class CreateClientServlet extends HttpServlet {
         boolean success = clientDAO.insertClient(client);
 
 
-
     }
 
 }

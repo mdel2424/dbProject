@@ -12,16 +12,15 @@ function initializePaymentFormRedirection() {
         signupForm.addEventListener('submit', function(event) {
             event.preventDefault();
 
-            const name = document.getElementById('signupName').value;
-            const SSN = document.getElementById('signupSSN').value;
-            const email = document.getElementById('signupEmail').value;
+            const fullName = document.getElementById('signupName').value;
+            const ssn = document.getElementById('signupSSN').value;
+            const address = document.getElementById('signupEmail').value;
 
             //encodes SQL query
-            let queryStr = encodeURIComponent("name="+name+"&SSN="+SSN+"&email="+email)
+            let queryStr = "ssn=" + encodeURIComponent(ssn) + "&fullName=" + encodeURIComponent(fullName) + "&address=" + encodeURIComponent(address);
 
             //creates sql user
-            fetch('./createClient' + queryStr)
-            .then(response => response.json())
+            fetch('./createClient?' + queryStr)
             .then(data => {
                 
                 console.log('User created:', data);

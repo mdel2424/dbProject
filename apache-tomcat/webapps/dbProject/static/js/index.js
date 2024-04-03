@@ -107,36 +107,6 @@ function initializeLoginFormRedirection() {
     }
 }
 
-// this will redirect users to payment once they sign up
-//it will create an instance of client since it is a new client
-function initializeSignUpFormRedirection() {
-    const loginForm = document.getElementById('SignUpStuff');
-    if (loginForm) {
-        loginForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const name = document.getElementById('signupName').value;
-            const SSN = document.getElementById('signupSSN').value;
-            const email = document.getElementById('signupEmail').value;
-
-            //encodes SQL query
-            let queryStr = encodeURIComponent("name="+name+"&SSN="+SSN+"&email="+email)
-
-            //creates sql user
-            fetch('./createClient' + queryStr)
-            .then(data => {console.log('User created:', data);}) //logs that a user was createds
-            .catch(error => console.log('Error:', error)) //just logs error (if any)
-
-
-            window.location.href = 'payment.html?SSN=';
-            
-        });
-    }
-}
-
-function sendSignUpClientData(){
-    
-}
 
 // Initialize payment form redirection to confirmation.html
 function initializePaymentFormRedirection() {
