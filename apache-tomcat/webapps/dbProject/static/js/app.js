@@ -1,14 +1,24 @@
-// Ran on website load
 document.addEventListener('DOMContentLoaded', function() {
+    // Load hotel chain data into dropdown
     loadData('hotelChain', item => ({ 
         text: item.hotelChainName, 
         value: item.chainId 
     }));
-    // Event listeners
-    document.getElementById('searchForm').addEventListener('submit', performSearch);
+
+    // Add event listener to the search form
+    const searchForm = document.getElementById('searchForm');
+    if (searchForm) {
+        searchForm.addEventListener('submit', performSearch);
+    }
+
+    // Initialize login form event listener for redirecting to payment.html
+    initializeLoginFormRedirection();
+
+    // Initialize payment form event listener for redirecting to confirmation.html
+    initializePaymentFormRedirection();
 });
 
-// Automatically performed on page load
+// Load data for dropdown
 function loadData(elementId, mapFunction) {
     fetch('./populateData')
         .then(response => response.json())
@@ -16,7 +26,7 @@ function loadData(elementId, mapFunction) {
         .catch(error => console.error('Error:', error));
 }
 
-// Used to populate dropdown with a map (e.x. hotelname -> hotelid), which is useful information to store in the dropdown, hidden
+// Populate dropdown with fetched data
 function populateDropdown(data, elementId, mapFunction) {
     const selectElement = document.getElementById(elementId);
     data.forEach(item => {
@@ -28,40 +38,42 @@ function populateDropdown(data, elementId, mapFunction) {
     });
 }
 
-// Performed when search button is clicked, for now just used for getting all hotels under a hotel chain
+// Handle search form submission
 function performSearch(event) {
     event.preventDefault();
-    let formElements = document.getElementById('searchForm').elements;
     let queryString = '';
+    let formElements = document.getElementById('searchForm').elements;
 
     for (let element of formElements) {
         if (element.name && element.value) {
-            if (queryString !== '') {
-                queryString += '&';
-            }
+            queryString += queryString.length > 0 ? '&' : '';
             queryString += encodeURIComponent(element.name) + '=' + encodeURIComponent(element.value);
         }
     }
 
     fetch('./getRoom?' + queryString)
-    .then(response => response.json())
-    .then(rooms => {
-        var resultsSection = document.getElementById('searchResults');
-        resultsSection.innerHTML = '';
-        
-        if (rooms.length === 0 || rooms === '') { // Checking if the response is empty
-            resultsSection.innerHTML = '<p>No results. Try again.</p>';
-        } else {
-            rooms.forEach(room => {
-                let roomCard = document.createElement('div');
-                roomCard.className = 'room-card';
-                
-                roomCard.innerHTML = `
-                    <div class="search-card">
-                    <div class="search-header">
-                        <h3>Room Number: ${room.roomId}</h3>
-                    </div>
-                    <div class="search-body">
+        .then(response => response.json())
+        .then(displaySearchResults)
+        .catch(error => console.error('Error:', error));
+}
+
+// Display search results
+function displaySearchResults(rooms) {
+    var resultsSection = document.getElementById('searchResults');
+    resultsSection.innerHTML = '';
+
+    if (rooms.length === 0 || rooms === '') {
+        resultsSection.innerHTML = '<p>No results. Try again.</p>';
+    } else {
+        rooms.forEach(room => {
+            let roomCard = document.createElement('div');
+            roomCard.className = 'room-card';
+            roomCard.innerHTML = `
+                <div class="search-card">
+                <div class="search-header">
+                    <h3>Room Number: ${room.roomId}</h3>
+                </div>
+                <div class="search-body">
                     <p>Damages: ${room.damages}</p>
                     <p>View: ${room.view}</p>
                     <p>Price: ${room.price}</p>
@@ -69,29 +81,38 @@ function performSearch(event) {
                     <p>Extendable: ${room.extendable ? 'Yes' : 'No'}</p>
                     <p>Amenities: ${room.amenities}</p>
                     <p>HotelID: ${room.hotelId}</p>
-                    <button class = "bookRoomButton" data-room-id="${room.roomId}"> Book Room </button>
-                    </div>
-                    </div>`;
+                    <button class="bookRoomButton" data-room-id="${room.roomId}"> Book Room </button>
+                </div>
+                </div>`;
 
+            resultsSection.appendChild(roomCard);
 
-
-
-                resultsSection.appendChild(roomCard);
-
-                // Add event listener to the dynamically created button
-                roomCard.querySelector('.bookRoomButton').addEventListener('click', function() {
-                    // Extract roomId from the button's data-room-id attribute
-                    let roomId = this.getAttribute('data-room-id');
-                    // Redirect to booking.html with roomId as a parameter
-                    window.location.href = 'CLogin.html?roomId=' + encodeURIComponent(roomId);
-                });               
-            });
-        }
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
-
-    return false;
+            roomCard.querySelector('.bookRoomButton').addEventListener('click', function() {
+                let roomId = this.getAttribute('data-room-id');
+                window.location.href = 'CLogin.html?roomId=' + encodeURIComponent(roomId);
+            });               
+        });
+    }
 }
 
+// Initialize login form redirection
+function initializeLoginFormRedirection() {
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            window.location.href = 'payment.html';
+        });
+    }
+}
+
+// Initialize payment form redirection to confirmation.html
+function initializePaymentFormRedirection() {
+    const paymentForm = document.getElementById('paymentForm');
+    if (paymentForm) {
+        paymentForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from actually submitting
+            window.location.href = 'confirmation.html'; // Redirect to confirmation.html
+        });
+    }
+}

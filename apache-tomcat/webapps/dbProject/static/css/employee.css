@@ -1,0 +1,155 @@
+/* General body styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e2e1e0;
+  }
+  
+  /* Container for the main content */
+  .container {
+    width: 80%;
+    margin: 20px auto;
+  }
+  
+  /* Header and footer styling */
+  header, footer {
+    background-color: #f1f1f1;
+    color: #333; /* For a bit of contrast */
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  /* Search form styling */
+  #searchForm {
+    margin: 30px 0;
+  }
+  
+  #searchForm label, #searchForm input, #searchForm button {
+    margin: 10px;
+  }
+  
+  /* Styling for hotel search result cards */
+  .search-card {
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    background-color: #ffffff; /* Light background for contrast */
+  }
+  
+  .search-header h3 {
+    margin: 0 0 15px 0;
+  }
+  
+  .search-body p {
+    margin: 10px 0;
+  }
+  
+  /* Container for the transparent text buttons */
+  .button-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+  
+  /* Styles for the transparent text buttons */
+  .transparent-text-button {
+    background: none;
+    border: none;
+    color: #007bff; /* Primary color for buttons */
+    padding: 10px; /* Padding for better click area */
+    margin: 0 15px;
+    font-size: 18px; /* Larger text size for buttons */
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .transparent-text-button:hover {
+    color: #0056b3; /* Darker blue on hover */
+  }
+  
+  .transparent-text-button:focus {
+    outline: none; /* Remove focus outline */
+  }
+  
+  /* Modal (background) */
+  /* Existing styles remain unchanged */
+
+/* Enhanced Modal styles for better appearance */
+.modal {
+    display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 2000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black with opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+  margin: 10% auto; /* Centered in the window */
+  padding: 30px;
+  border: 1px solid #888;
+  width: 90%; /* Responsive width */
+  max-width: 500px; /* Maximum width */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#adminIdForm {
+    text-align: center;
+  }
+  
+  #adminIdForm label, 
+  #adminIdForm input[type=text], 
+  #adminIdForm button {
+    margin-top: 15px;
+  }
+
+  /* Input field styling */
+#adminIdForm input[type=text] {
+    padding: 10px;
+    width: calc(100% - 22px); /* Account for padding */
+    border: 2px solid #007bff; /* Consistent border styling */
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+
+/* Adjust the form and input styles if necessary */
+#adminIdForm button {
+    padding: 12px 25px;
+    background-color: #28a745; /* Consistent button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out; /* Smooth transition */
+}
+
+
+#adminIdForm button:hover {
+    background-color: #218838; /* Darker green on hover */
+}

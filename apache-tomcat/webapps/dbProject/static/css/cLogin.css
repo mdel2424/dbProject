@@ -1,55 +1,81 @@
 body {
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Updated font for consistency */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f2f5;
+    background-color: #e2e1e0; /* Softer background color for a modern look */
 }
+
 .login-container {
     background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 30px; /* More padding for spacious layout */
+    border-radius: 10px; /* Softened corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
 }
+
+.login-container:hover {
+    transform: translateY(-10px); /* Lift effect on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); /* More pronounced shadow on hover */
+}
+
 .login-container h2 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px; /* Increased spacing */
+    color: #007bff; /* Blue color for titles */
 }
+
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px; /* More spacing between fields */
 }
+
 .form-group label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px; /* Increased space between label and input */
+    font-weight: 600; /* Bold labels */
+    color: #555; /* Darker label color for better contrast */
 }
+
 .form-group input {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
+    padding: 12px; /* Comfortable padding */
+    border: 2px solid #007bff; /* Consistent border color */
+    border-radius: 5px;
+    box-sizing: border-box; /* No changes */
+    transition: border-color 0.25s ease-in-out; /* Smooth transition */
 }
+
+.form-group input:focus {
+    border-color: #0056b3; /* Focus color */
+    outline: none;
+}
+
 .form-group button {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     border: none;
-    border-radius: 4px;
-    background-color: #4CAF50;
+    border-radius: 5px;
+    background-color: #28a745; /* Green for a positive action */
     color: white;
     cursor: pointer;
+    transition: background-color 0.2s; /* Smooth transition for interaction */
 }
+
 .form-group button:hover {
-    background-color: #0056b3;
+    background-color: #218838; /* Darker on hover */
 }
+
 .message {
     text-align: center;
     margin-top: 15px;
 }
+
 .message a {
-    color: #007bff;
+    color: #007bff; /* Bright blue for links */
     text-decoration: none;
 }
+
 .message a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* Underline on hover for emphasis */
 }

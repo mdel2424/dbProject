@@ -1,57 +1,80 @@
 body {
-    font-family:Arial, Helvetica, sans-serif;
-    background: #f4f4f4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Updated font */
+    background: #e2e1e0; /* Lighter shade for a softer look */
     padding: 20px;
+    color: #333; /* Darker text for better readability */
 }
 
 .form-container {
-    background: white;
+    background: #ffffff;
     max-width: 700px;
     margin: 40px auto;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px; /* More padding for a spacious look */
+    border-radius: 10px; /* Slightly larger radius for softer edges */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* More pronounced shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for hover effects */
+}
+
+.form-container:hover {
+    transform: translateY(-10px); /* Slight lift effect on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); /* Enhanced shadow on hover for a "raised" effect */
 }
 
 h1 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px; /* Increased margin for more space above form */
+    color: #007bff; /* Bright blue for a pop of color */
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px; /* Increased spacing for clarity */
     padding-right: 15px;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px; /* Slightly more space between label and input */
+    font-weight: 600; /* Bold labels for emphasis */
+    color: #555; /* Darker label color for contrast */
 }
 
-.form-group select,
 .form-group input[type="text"],
 .form-group input[type="date"],
 .form-group input[type="number"],
 .form-group input[type="password"],
-.form-group input[type="month"]{
+.form-group input[type="month"],
+.form-group select {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 12px; /* Slightly larger padding for a more comfortable typing experience */
+    border: 2px solid #007bff; /* Bright blue border for a cohesive look */
+    border-radius: 5px; /* Subtle border-radius */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Inner shadow for depth */
+    transition: border-color 0.25s ease-in-out; /* Smooth transition for focus */
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="date"]:focus,
+.form-group input[type="number"]:focus,
+.form-group input[type="password"]:focus,
+.form-group input[type="month"]:focus,
+.form-group select:focus {
+    border-color: #0056b3; /* Darker blue on focus for emphasis */
+    outline: none; /* Remove default focus outline */
 }
 
 input[type="submit"] {
     display: block;
     width: 100%;
-    padding: 10px;
-    margin-top: 20px;
-    background-color: #4CAF50;
+    padding: 12px;
+    margin-top: 25px; /* More space above the submit button */
+    background-color: #28a745; /* Green for a friendly "go" color */
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.2s; /* Smooth color transition */
 }
 
 input[type="submit"]:hover {
-    background-color: #0089ba;
+    background-color: #218838; /* Darker green on hover */
 }
