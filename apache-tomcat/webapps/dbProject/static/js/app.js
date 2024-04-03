@@ -83,7 +83,7 @@ function performSearch(event) {
                     // Extract roomId from the button's data-room-id attribute
                     let roomId = this.getAttribute('data-room-id');
                     // Redirect to booking.html with roomId as a parameter
-                    window.location.href = 'booking.html?roomId=' + encodeURIComponent(roomId);
+                    window.location.href = 'CLogin.html?roomId=' + encodeURIComponent(roomId);
                 });               
             });
         }

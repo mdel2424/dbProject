@@ -69,3 +69,76 @@ header, footer {
 .transparent-text-button:focus {
   outline: none; /* Remove outline on focus */
 }
+
+/* Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 2000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black with opacity */
+}
+
+/* Modal Content Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  max-width: 500px; /* Maximum width */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  border-radius: 5px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Additional styles for form inside the modal */
+#employeeIdForm {
+  text-align: center;
+}
+
+#employeeIdForm label, 
+#employeeIdForm input[type=text], 
+#employeeIdForm button {
+  margin-top: 10px;
+}
+
+/* Input field styling */
+#employeeIdForm input[type=text] {
+  padding: 8px;
+  width: 95%; /* Slightly less than 100% to fit within padding */
+  margin-top: 5px;
+}
+
+/* Submit button styling */
+#employeeIdForm button {
+  padding: 10px 20px;
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+#employeeIdForm button:hover {
+  background-color: #0089ba; /* Dark blue */
+}
