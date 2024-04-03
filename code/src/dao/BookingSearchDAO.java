@@ -21,8 +21,7 @@ public class BookingSearchDAO {
     public String getRoomsFromQuery(Map<String, String[]> arguments) {
         StringBuilder sql = new StringBuilder(
             "SELECT B.*, R.* FROM Booking B " +
-            "INNER JOIN Client C ON B.clientId = C.id " +
-            "INNER JOIN Reservation R ON C.id = R.clientId"
+            "INNER JOIN Client C ON B.clientId = C.id "
         );
         
         if (!arguments.isEmpty()) {
