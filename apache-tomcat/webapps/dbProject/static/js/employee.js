@@ -12,7 +12,33 @@ document.addEventListener('DOMContentLoaded', function() {
     if (searchForm) {
         searchForm.addEventListener('submit', performSearch);
     }
+
+        // Add event listener to the search form
+    document.body.addEventListener('click', function(event) {
+        if (event.target && event.target.classList.contains('convertToBooking')) {
+            const bookingId = event.target.getAttribute('data-booking-id'); // Get the booking ID from the clicked button
+            convertToBooking(bookingId); // Call the function to convert to booking
+        }
+    });
 });
+
+function convertToBooking(bookingId) {
+    let queryStr = "bookingId=" + encodeURIComponent(bookingId);
+    fetch('./convertBooking?' + queryStr)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json(); // Process the response
+    })
+    .then(data => {
+        console.log('Success:', data);
+        performSearch(); // Refresh the search results after successful booking conversion
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}
 
 
 
@@ -65,7 +91,7 @@ function initializeAdminModal() {
 
 // Handle search form submission
 function performSearch(event) {
-    event.preventDefault();
+    if (event) event.preventDefault(); // Prevent the default action only if called as an event handler
     let queryString = '';
     let formElements = document.getElementById('bookingSearch').elements;
 
@@ -82,6 +108,7 @@ function performSearch(event) {
         .catch(error => console.error('Error:', error));
 }
 
+
 // Display search results
 function displaySearchResults(bookings) {
     var resultsSection = document.getElementById('searchResults');
@@ -93,6 +120,8 @@ function displaySearchResults(bookings) {
         bookings.forEach(booking => {
             let bookingCard = document.createElement('div');
             bookingCard.className = 'room-card';
+            // Conditionally rendering the 'Convert to booking' button only if booking status is 'reserved'
+            let buttonHTML = booking.status.toLowerCase() === 'reserved' ? `<button class="convertToBooking" data-booking-id="${booking.bookingId}"> Convert to booking </button>` : '';
             bookingCard.innerHTML = `
                 <div class="search-card">
                     <div class="search-header">
@@ -104,7 +133,7 @@ function displaySearchResults(bookings) {
                         <p>Room Number: ${booking.roomNumber}</p>
                         <p>Start Date: ${booking.startDate}</p>
                         <p>End Date: ${booking.endDate}</p>
-                        <button class="convertToBooking" data-booking-id="${booking.bookingId}"> Convert to booking </button>
+                        ${buttonHTML}
                     </div>
                 </div>`;
         
