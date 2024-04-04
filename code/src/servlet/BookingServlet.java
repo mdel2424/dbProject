@@ -21,9 +21,8 @@ public class BookingServlet extends HttpServlet {
         Map<String, String[]> arguments = request.getParameterMap();
         BookingSearchDAO bookingSearchDao = new BookingSearchDAO();
         String jsonData;
-
         // Create the json response depending on the request
-        jsonData = bookingSearchDao.getRoomsFromQuery(arguments); // Method to fetch hotels by chain ID
+        jsonData = bookingSearchDao.getBookingsFromQuery(arguments); // Method to fetch hotels by chain ID
 
         // Respond with the json object
         PrintWriter out = response.getWriter();
