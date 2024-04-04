@@ -3,12 +3,12 @@ package model;
 import java.sql.Date;
 
 public class Client {
-    private String ssn;
+    private int ssn;
     private String fullName;
     private String address;
     private Date registrationDate;
 
-    public Client(String ssn, String fullName, String address, Date registrationDate) {
+    public Client(int ssn, String fullName, String address, Date registrationDate) {
         this.ssn = ssn;
         this.fullName = fullName;
         this.address = address;
@@ -23,7 +23,7 @@ public class Client {
         //TODO Auto-generated constructor stub
     }
 
-    public String getSsn() {
+    public int getSsn() {
         return ssn;
     }
 
@@ -39,7 +39,7 @@ public class Client {
         return registrationDate;
     }
 
-    public void setSsn(String ssn) {
+    public void setSsn(int ssn) {
         this.ssn = ssn;
     }
 

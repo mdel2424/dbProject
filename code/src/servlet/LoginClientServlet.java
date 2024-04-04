@@ -20,7 +20,7 @@ public class LoginClientServlet {
 
         client.setFullName(request.getParameter("fullName"));
         client.setAddress(request.getParameter("address"));
-        client.setSsn(request.getParameter("ssn"));
+        client.setSsn(Integer.parseInt(request.getParameter("ssn")));
 
         client.setRegistrationDate(new Date(System.currentTimeMillis()));;
 

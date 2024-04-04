@@ -32,7 +32,7 @@ public class ClientDAO{
              
             while (resultSet.next()) {
                 Client client = new Client();
-                client.setSsn(resultSet.getString("SSN"));
+                client.setSsn(resultSet.getInt("SSN"));
                 client.setFullName(resultSet.getString("FullName"));
                 client.setAddress(resultSet.getString("Address"));
                 client.setRegistrationDate(resultSet.getDate("RegistrationDate"));
@@ -52,7 +52,7 @@ public class ClientDAO{
             
             if (resultSet.next()) {
                 Client client = new Client();
-                client.setSsn(resultSet.getString("SSN"));
+                client.setSsn(resultSet.getInt("SSN"));
                 client.setFullName(resultSet.getString("FullName"));
                 client.setAddress(resultSet.getString("Address"));
                 client.setRegistrationDate(resultSet.getDate("RegistrationDate"));
@@ -65,9 +65,9 @@ public class ClientDAO{
     }
 
     public boolean insertClient(Client client) {
-        String sql = "INSERT INTO Client (SSN, FullName, Address, RegistrationDate) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO Client (SSN, FullName, \"Address\", RegistrationDate) VALUES (?, ?, ?, ?)";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setString(1, client.getSsn());
+            preparedStatement.setInt(1, client.getSsn());
             preparedStatement.setString(2, client.getFullName());
             preparedStatement.setString(3, client.getAddress());
             preparedStatement.setDate(4, new java.sql.Date(client.getRegistrationDate().getTime()));
@@ -86,7 +86,7 @@ public class ClientDAO{
             preparedStatement.setString(1, client.getFullName());
             preparedStatement.setString(2, client.getAddress());
             preparedStatement.setDate(3, new java.sql.Date(client.getRegistrationDate().getTime()));
-            preparedStatement.setString(4, client.getSsn());
+            preparedStatement.setInt(4, client.getSsn());
             
             int affectedRows = preparedStatement.executeUpdate();
             return affectedRows > 0;
