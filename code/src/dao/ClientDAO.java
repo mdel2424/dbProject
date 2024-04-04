@@ -17,6 +17,11 @@ public class ClientDAO{
 
     public ClientDAO() {
         connection = DBConnection.getConnection();
+
+        if(connection != null){
+            System.out.println("database is connected");
+        }
+        else{System.out.println("database not connected");}
     }
 
     public List<Client> getAllClients() {
