@@ -1,11 +1,9 @@
 package servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Date;
 
 import dao.ClientDAO;
-import dao.HotelChainDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -28,8 +26,6 @@ public class CreateClientServlet extends HttpServlet {
         ClientDAO clientDAO = new ClientDAO();
 
         boolean success = clientDAO.insertClient(client);
-
-
     }
 
 }

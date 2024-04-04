@@ -84,7 +84,7 @@ function performSearch(event) {
 
 // Display search results
 function displaySearchResults(bookings) {
-    var resultsSection = document.getElementById('bookingSearch');
+    var resultsSection = document.getElementById('searchResults');
     resultsSection.innerHTML = '';
 
     if (!bookings.length) {
@@ -95,16 +95,19 @@ function displaySearchResults(bookings) {
             bookingCard.className = 'room-card';
             bookingCard.innerHTML = `
                 <div class="search-card">
-                <div class="search-header">
-                    <h3>Room Number: ${booking.bookingId}</h3>
-                </div>
-                <div class="search-body">
-                    <p>Name: ${booking.name}</p>
-                    <p>Date: ${booking.date}</p>
-                    <button class="convertToBooking" data-room-id="${booking.bookingId}"> Convert to booking </button>
-                </div>
+                    <div class="search-header">
+                        <h3>Booking ID: ${booking.bookingId}</h3>
+                        <h4>Status: ${booking.status}</h4>
+                    </div>
+                    <div class="search-body">
+                        <p>Name: ${booking.clientName}</p>
+                        <p>Room Number: ${booking.roomNumber}</p>
+                        <p>Start Date: ${booking.startDate}</p>
+                        <p>End Date: ${booking.endDate}</p>
+                        <button class="convertToBooking" data-booking-id="${booking.bookingId}"> Convert to booking </button>
+                    </div>
                 </div>`;
-
+        
             resultsSection.appendChild(bookingCard);
         });
     }
