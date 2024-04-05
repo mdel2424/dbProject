@@ -12,6 +12,7 @@ import java.util.Map;
 
 import com.google.gson.Gson;
 
+import model.Hotel;
 import model.Room;
 import util.DBConnection;
 
@@ -64,6 +65,14 @@ public class RoomSearchDAO {
                 sql.append("H.starrating = '").append(arguments.get("hotelCategory")[0]+"'");
                 first = false;
             }
+
+            //Trying to get Location from DB
+            if (arguments.containsKey("location")) {
+                if (!first) sql.append(" AND ");
+                sql.append("H.\"Address\" LIKE '%").append(arguments.get("location")[0]+"%'");
+                first = false;
+            }
+            
 
             if (arguments.containsKey("hotelCapacityMin")) {
                 if (!first) sql.append(" AND ");
