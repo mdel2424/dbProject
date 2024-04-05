@@ -4,6 +4,8 @@ import java.util.List;
 
 public class Room {
     private int roomId;
+    private String location;
+    
     private List<String> damages;
     private String view;
     private int price;
@@ -12,9 +14,10 @@ public class Room {
     private boolean extendable;
     private List<String> amenities;
     private int hotelId;
-
-    public Room(int roomId, List<String> damages, String view, int price, String capacity, int roomNumber, boolean extendable, List<String> amenities,
-                 int hotelId) {
+    
+    public Room(int roomId, String location, List<String> damages, String view, int price, String capacity, int roomNumber, boolean extendable, List<String> amenities,
+    int hotelId) {
+        this.location = location;
         this.roomId = roomId;
         this.damages = damages;
         this.view = view;
@@ -25,9 +28,16 @@ public class Room {
         this.amenities = amenities;
         this.hotelId = hotelId;
     }
-
+    
     public Room() {
         //TODO Auto-generated constructor stub
+    }
+
+    public String getLocation() {
+        return location;
+    }
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public void setRoomId(int roomId) {

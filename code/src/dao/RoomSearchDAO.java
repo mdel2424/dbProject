@@ -69,7 +69,7 @@ public class RoomSearchDAO {
             //Trying to get Location from DB
             if (arguments.containsKey("location")) {
                 if (!first) sql.append(" AND ");
-                sql.append("H.\"Address\" LIKE '%").append(arguments.get("location")[0]+"%'");
+                sql.append("\"Address\" LIKE '%").append(arguments.get("location")[0]+"%'");
                 first = false;
             }
             
@@ -104,6 +104,7 @@ public class RoomSearchDAO {
                 room.setRoomId(rs.getInt("RoomId"));
                 Array damagesArray = rs.getArray("Damages");
                 String[] damages = (String[]) damagesArray.getArray();
+                room.setLocation(rs.getString("Address"));
                 room.setDamages(Arrays.asList(damages));
                 room.setView(rs.getString("View"));
                 room.setPrice(rs.getInt("Price"));

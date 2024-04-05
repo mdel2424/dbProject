@@ -65,6 +65,7 @@ function displaySearchResults(rooms) {
     if (rooms.length === 0 || rooms === '') {
         resultsSection.innerHTML = '<p>No results. Try again.</p>';
     } else {
+        resultsSection.innerHTML = `<p>Number of results: ${rooms.length}</p>`;
         rooms.forEach(room => {
             let roomCard = document.createElement('div');
             roomCard.className = 'room-card';
@@ -74,6 +75,7 @@ function displaySearchResults(rooms) {
                     <h3>Room Number: ${room.roomId}</h3>
                 </div>
                 <div class="search-body">
+                    <p>Damages: ${room.location}</p>
                     <p>Damages: ${room.damages}</p>
                     <p>View: ${room.view}</p>
                     <p>Price: ${room.price}</p>
