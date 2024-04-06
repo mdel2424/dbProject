@@ -29,7 +29,7 @@ public class LoginClientServlet {
         boolean success = clientDAO.insertClient(client);
 
         PrintWriter out = response.getWriter();
-        out.println(success);
+        out.println(success); 
 
     }
 

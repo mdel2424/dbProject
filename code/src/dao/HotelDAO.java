@@ -104,4 +104,26 @@ public class HotelDAO{
         Gson gson = new Gson();
         return gson.toJson(hotels);
     }
+
+    public boolean insertHotel(Hotel hotel) {
+        String sql = "INSERT INTO Hotel (StarRating, NRooms, \"Address\", HotelName, ContactEmails, PhoneNumber, ChainID) " +
+                     "VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(2, hotel.getNRooms());
+            pstmt.setString(3, hotel.getAddress());
+            pstmt.setString(4, hotel.getHotelName());
+            pstmt.setArray(5, conn.createArrayOf("VARCHAR", hotel.getContactEmails().split(",")));
+            pstmt.setString(6, hotel.getPhoneNumber());
+            pstmt.setInt(7, hotel.getChainId());
+
+            int affectedRows = pstmt.executeUpdate();
+            return affectedRows > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

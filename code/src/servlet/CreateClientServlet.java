@@ -1,9 +1,11 @@
 package servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Date;
 
 import dao.ClientDAO;
+import dao.HotelChainDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -14,18 +16,21 @@ import model.Client;
 @WebServlet("/createClient")
 public class CreateClientServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
 
-        Client client = new Client();
-
-        client.setFullName(request.getParameter("fullName"));
-        client.setAddress(request.getParameter("address"));
-        client.setSsn(Integer.parseInt(request.getParameter("ssn")));
-
-        client.setRegistrationDate(new Date(System.currentTimeMillis()));;
+        Client client;
 
         ClientDAO clientDAO = new ClientDAO();
 
-        boolean success = clientDAO.insertClient(client);
+        //gets a client using getClient() with the ssn given in the HTML 
+        client = clientDAO.getClient(request.getParameter("ssn"));
+
+
+
+
     }
+
+    
 
 }

@@ -80,7 +80,7 @@ function initializeAdminModal() {
         // Check if the entered Admin ID is "1"
         if (adminIdInput.value === "1") {
             // Correct Admin ID entered, redirect to the admin page
-            window.location.href = 'unknown/admin.html';
+            window.location.href = 'admin.html';
         } else {
             // Incorrect Admin ID entered, show an error message
             alert("User is not an admin");

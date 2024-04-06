@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="static/js/admin.js"></script>
+<head>
+</head>
+
+<body>
+    <h1>Hotel Admin Panel</h1>
+    
+    <form id = "addNewChain" action="#" method="post">
+        <h2>Add New Hotel Chain</h2>
+
+        <label for="chainName">Name:</label>
+        <input type="text" id="chainName" name="chainName"  required><br><br>
+
+        <label for="chainId">chain ID:</label>
+        <input type="text" id="chainId" name="chainId"  required><br><br>
+        
+        <label for="chainLocation">Headquarters Address:</label>
+        <input type="text" id="chainLocation" name="chainLocation" required><br><br>
+        
+        <label for="chainHotels">Number of Hotels:</label>
+        <input type="number" id="chainHotels" name="chainHotels"  required><br><br>
+
+        <label for="chainContactEmail">Contact Email:</label>
+        <input type="text" id="chainContactEmail" name="chainContactEmail" ><br><br>
+
+        <label for="chainContactPhone">Contact Phone:</label>
+        <input type="text" id="chainContactPhone" name="chainContactPhone" ><br><br>
+        
+        <input type="submit" value="Add Hotel Chain">
+    </form>
+
+        
+    <form id = "addNewHotel" action="#" method="post">
+        <h2>Add New Hotel</h2>
+
+        <label for="hotelName">Name:</label>
+        <input type="text" id="hotelName" name="hotelName"  required><br><br>
+
+        <label for="hotelChainId">Name:</label>
+        <input type="text" id="hotelChainId" name="hotelChainId"  required><br><br>
+
+        <label for="hotelId">hotel ID:</label>
+        <input type="text" id="hotelId" name="hotelId"  required><br><br>
+        
+        <label for="hotelAddress">Hotel Address:</label>
+        <input type="text" id="hotelAddress" name="hotelAddress" required><br><br>
+        
+        <label for="hotelNumberRooms">Number of Rooms:</label>
+        <input type="number" id="hotelNumberRooms" name="hotelNumberRooms"  required><br><br>
+
+        <label for="hotelContactEmail">Contact Email:</label>
+        <input type="text" id="hotelContactEmail" name="hotelContactEmail" ><br><br>
+
+        <label for="hotelContactPhone">Contact Phone:</label>
+        <input type="text" id="hotelContactPhone" name="hotelContactPhone" ><br><br>
+        
+        <input type="submit" value="Add Hotel">
+    </form>
+
+    
+
+</body>
+</html>

@@ -41,4 +41,25 @@ public class HotelChainDAO{
         Gson gson = new Gson();
         return gson.toJson(hotelChains);
     }
+
+    public boolean insertHotelChain(HotelChain hotelChain) {
+        String sql = "INSERT INTO HotelChain (NHotels, HQAddress, ContactEmails, PhoneNumber, HotelChainName) VALUES (?, ?, ?, ?, ?)";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, hotelChain.getNHotels());
+            pstmt.setString(2, hotelChain.getHQAddress());
+            pstmt.setArray(3, conn.createArrayOf("VARCHAR", hotelChain.getContactEmails().split("this is so its an arrray and not a string, fix later")));
+            pstmt.setString(4, hotelChain.getPhoneNumber());
+            pstmt.setString(5, hotelChain.getHotelChainName());
+
+            int affectedRows = pstmt.executeUpdate();
+            return affectedRows > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 }
