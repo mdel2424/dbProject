@@ -9,9 +9,9 @@ CREATE TABLE HotelChain (
 );
 
 CREATE TABLE Client (
-    SSN SERIAL PRIMARY KEY,
+    SSN INTEGER PRIMARY KEY,
     FullName VARCHAR(255),
-    "Address" VARCHAR(255),
+    Email VARCHAR(255),
     RegistrationDate DATE
 );
 
@@ -27,7 +27,7 @@ CREATE TABLE Hotel (
     FOREIGN KEY (ChainID) REFERENCES HotelChain
 );
 CREATE TABLE Employee (
-    SSN SERIAL PRIMARY KEY,
+    SSN INTEGER PRIMARY KEY,
     FullName VARCHAR(255),
     "Address" VARCHAR(255),
     "Role" VARCHAR(255),

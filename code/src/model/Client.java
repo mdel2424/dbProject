@@ -5,13 +5,13 @@ import java.sql.Date;
 public class Client {
     private int ssn;
     private String fullName;
-    private String address;
+    private String email;
     private Date registrationDate;
 
-    public Client(int ssn, String fullName, String address, Date registrationDate) {
+    public Client(int ssn, String fullName, String email, Date registrationDate) {
         this.ssn = ssn;
         this.fullName = fullName;
-        this.address = address;
+        this.email = email;
         this.registrationDate = registrationDate;
     }
 
@@ -19,7 +19,7 @@ public class Client {
         //TODO Auto-generated constructor stub
     }
 
-    public Client(String ssn2, String fullName2, String address2) {
+    public Client(String ssn2, String fullName2, String email2) {
         //TODO Auto-generated constructor stub
     }
 
@@ -31,8 +31,8 @@ public class Client {
         return fullName;
     }
 
-    public String getAddress() {
-        return address;
+    public String getEmail() {
+        return email;
     }
 
     public Date getRegistrationDate() {
@@ -47,8 +47,8 @@ public class Client {
         this.fullName = fullName;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setRegistrationDate(Date registrationDate) {

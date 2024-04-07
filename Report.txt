@@ -1,0 +1,49 @@
+Languages:
+Apache Tomcat
+Java
+HTML/CSS/js
+PostgreSQL
+
+DB steps:
+1. Create a database called "dbProject"
+2. Open a query tool for this database, and run the two sql files found in the db/queryTool folder, schema first, then data, in order.
+
+To start:
+To start the app, simply run the start tomcat.bat in the root folder. All the java code is in dbProject/code. All the Html/css/js is in apache-tomcat/webapps/dbProject/
+
+Admin code is 1.
+Employee code does not matter
+
+Indexes:
+Indexes on Foreign Key Columns: Given the nature of operations in a booking system, indexes on foreign key columns can accelerate JOIN operations between tables. An index on clientId in the booking table improves performance when retrieving all bookings for a specific client.
+
+Composite Index for Booking Date Range Searches: Queries to find bookings within specific date ranges are common. A composite index on startDate and endDate in the booking table could make these queries more efficient, especially for operations like checking room availability.
+
+Index on Email and Username in the client Table: The application frequently performs operations involving client login or lookup by email/username, so an index on the email and username column significantly reduces login times and improves user experience.
+
+
+
+Triggers and request: Refer to the db/queryTool folder for all the sql examples.
+
+
+
+
+TROUBLESHOOTING:
+
+JAVA_HOME doesn't exist:
+Set JAVA_HOME Environment Variable:
+
+Right-click on 'This PC' or 'My Computer' on your desktop or in File Explorer.
+Click on 'Properties'.
+Click on 'Advanced system settings'.
+In the System Properties window, go to the 'Advanced' tab and click on 'Environment Variables...'.
+In the Environment Variables window, under 'System variables', click 'New...'.
+For 'Variable name', enter JAVA_HOME.
+For 'Variable value', enter the path to your JDK installation (e.g., C:\Program Files\Java\jdk-17.0.10).
+Click OK.
+Update the System Path:
+
+In the same 'Environment Variables' window, under 'System variables', scroll to find the 'Path' variable and select it.
+Click 'Edit...'.
+In the 'Edit environment variable' window, click 'New' and add %JAVA_HOME%\bin.
+Click OK in all open windows to close them.

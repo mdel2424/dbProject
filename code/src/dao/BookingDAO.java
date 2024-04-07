@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -37,46 +38,23 @@ public class BookingDAO{
         return bookings;
     }
 
-    // // Method to insert a new booking
-    // public boolean insertBooking(Booking booking) {
-    //     String sql = "INSERT INTO Booking (Status, StartDate, EndDate, RoomId, ClientId) VALUES (?, ?, ?, ?, ?)";
-        
-    //     try (Connection conn = DBConnection.getConnection();
-    //          PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            
-    //         pstmt.setString(1, booking.getStatus());
-    //         pstmt.setDate(2, new java.sql.Date(booking.getStartDate().getTime()));
-    //         pstmt.setDate(3, new java.sql.Date(booking.getEndDate().getTime()));
-    //         pstmt.setInt(4, booking.getRoomId());
-    //         pstmt.setInt(5, booking.getClientId());
-            
-    //         int affectedRows = pstmt.executeUpdate();
-    //         return affectedRows > 0;
-    //     } catch (SQLException e) {
-    //         e.printStackTrace();
-    //         return false;
-    //     }
-    // }
+    public boolean insertBooking(Booking booking) {
+        String sql = "INSERT INTO Booking (Status, StartDate, EndDate, RoomId, ClientId) VALUES (?, ?, ?, ?, ?)";
 
-    // // Method to update an existing booking
-    // public boolean updateBooking(Booking booking) {
-    //     String sql = "UPDATE Booking SET Status = ?, StartDate = ?, EndDate = ?, RoomId = ?, ClientId = ? WHERE BookingId = ?";
-        
-    //     try (Connection conn = DBConnection.getConnection();
-    //          PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
             
-    //         pstmt.setString(1, booking.getStatus());
-    //         pstmt.setDate(2, new java.sql.Date(booking.getStartDate().getTime()));
-    //         pstmt.setDate(3, new java.sql.Date(booking.getEndDate().getTime()));
-    //         pstmt.setInt(4, booking.getRoomId());
-    //         pstmt.setInt(5, booking.getClientId());
-    //         pstmt.setInt(6, booking.getBookingId());
-            
-    //         int affectedRows = pstmt.executeUpdate();
-    //         return affectedRows > 0;
-    //     } catch (SQLException e) {
-    //         e.printStackTrace();
-    //         return false;
-    //     }
-    // }
+            pstmt.setString(1, booking.getStatus());
+            pstmt.setDate(2, booking.getStartDate());
+            pstmt.setDate(3, booking.getEndDate());
+            pstmt.setInt(4, booking.getRoomId());
+            pstmt.setInt(5, booking.getClientId());
+
+            int affectedRows = pstmt.executeUpdate();
+            return affectedRows > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

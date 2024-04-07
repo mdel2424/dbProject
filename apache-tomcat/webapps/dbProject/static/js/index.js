@@ -10,12 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (searchForm) {
         searchForm.addEventListener('submit', performSearch);
     }
-
-    // Initialize login form event listener for redirecting to payment.html
-    initializeLoginFormRedirection();
-
-    // Initialize payment form event listener for redirecting to confirmation.html
-    initializePaymentFormRedirection();
+    signUp();
 });
 
 // Load data for dropdown
@@ -97,26 +92,61 @@ function displaySearchResults(rooms) {
     }
 }
 
-// Initialize login form redirection
-function initializeLoginFormRedirection() {
-    const loginForm = document.getElementById('logInStuff');
-    if (loginForm) {
-        loginForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            window.location.href = 'payment.html?SSN=';
+function signUp() {
+    const signupForm = document.getElementById('signUpStuff');
+    const errorDisplayElement = document.getElementById('errorDisplay'); // Add an element with this ID to your HTML
 
+    if (signupForm) {
+        signupForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const fullName = document.getElementById('signupName').value;
+            const ssn = document.getElementById('signupSSN').value;
+            const email = document.getElementById('signupEmail').value;
+
+            let queryStr = "ssn=" + encodeURIComponent(ssn) + "&fullName=" + encodeURIComponent(fullName) + "&email=" + encodeURIComponent(email);
+
+            fetch('./createClient?' + queryStr)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json(); // Assuming your servlet responds with JSON
+            })
+            .then(data => {
+                console.log('User created:', data);
+                window.location.href = './createBooking?SSN=' + encodeURIComponent(ssn);
+                window.location.href = 'index.html'; 
+            })
+            .catch(error => {
+                console.log('Error:', error);
+                if (errorDisplayElement) {
+                    errorDisplayElement.textContent = 'Error creating user. Please try again.';
+                }
+            });
+
+            return false;
         });
     }
 }
 
+function createBooking(startDate, endDate, roomId, clientId) {
+    const queryStr = `startDate=${encodeURIComponent(startDate)}&endDate=${encodeURIComponent(endDate)}&roomId=${encodeURIComponent(roomId)}&clientId=${encodeURIComponent(clientId)}`;
 
-// Initialize payment form redirection to confirmation.html
-function initializePaymentFormRedirection() {
-    const paymentForm = document.getElementById('paymentForm');
-    if (paymentForm) {
-        paymentForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the form from actually submitting
-            window.location.href = 'confirmation.html'; // Redirect to confirmation.html
-        });
-    }
+    fetch('./createBooking?' + queryStr)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to create booking');
+        }
+        return response.json(); // Assuming your servlet sends back a JSON response
+    })
+    .then(data => {
+        console.log('Booking created:', data);
+        alert('Booking successful!');
+        window.location.href = 'index.html'; // Redirect to homepage or a confirmation page
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error creating booking. Please try again.');
+    });
 }
