@@ -1,14 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Load hotel chain data into dropdown
-    loadData('hotelChain', item => ({ 
-        text: item.hotelChainName, 
-        value: item.chainId 
-    }));
+    const pathname = window.location.pathname;
+    // Check if on index.html or root page
+    if (pathname === '/dbProject/index.html' || pathname === '/dbProject/') {
+        loadData('hotelChain', item => ({ 
+            text: item.hotelChainName, 
+            value: item.chainId 
+        }));
+    }
 
     // Add event listener to the search form
     const searchForm = document.getElementById('searchForm');
     if (searchForm) {
         searchForm.addEventListener('submit', performSearch);
+    }
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', login);
     }
     signUp();
 });
@@ -52,6 +60,48 @@ function performSearch(event) {
         .catch(error => console.error('Error:', error));
 }
 
+function login(event) {
+    event.preventDefault();
+    let form = event.target; // Assuming the event target is the form
+    let formElements = form.elements; // Get the form elements
+    let queryString = '';
+    
+    // Retrieving booking details from session storage
+    const bookingDetailsJson = window.sessionStorage.getItem('bookingDetails');
+    if (!bookingDetailsJson) {
+        alert("Booking details are missing. Please ensure you have the necessary details before proceeding.");
+        return;
+    }
+    
+    const { startDate, endDate, roomId } = JSON.parse(bookingDetailsJson);
+
+    for (let element of formElements) {
+        if (element.name && element.value) {
+            queryString += queryString.length > 0 ? '&' : '';
+            queryString += encodeURIComponent(element.name) + '=' + encodeURIComponent(element.value);
+        }
+    }
+
+    // Proceed with SSN check
+    fetch('./checkSSN?' + queryString)
+        .then(response => response.json())
+        .then(data => {
+            if (data.message && data.message === "SSN exists.") {
+                // Upon successful SSN verification, call createBooking with the retrieved booking details
+                createBooking(startDate, endDate, roomId, event.target.elements['loginSSN'].value);
+            } else {
+                // If SSN verification fails, show an appropriate error message
+                alert("Error: " + (data.error || "SSN not found or invalid."));
+            }
+        })
+        .catch(error => {
+            // Handle fetch errors
+            console.error('Error:', error);
+            alert("Error: Unable to verify SSN. Please try again.");
+        });
+}
+
+
 // Display search results
 function displaySearchResults(rooms) {
     var resultsSection = document.getElementById('searchResults');
@@ -67,7 +117,7 @@ function displaySearchResults(rooms) {
             roomCard.innerHTML = `
                 <div class="search-card">
                 <div class="search-header">
-                    <h3>Room Number: ${room.roomId}</h3>
+                    <h3>Room ID: ${room.roomId}</h3>
                 </div>
                 <div class="search-body">
                     <p>Damages: ${room.location}</p>
@@ -85,9 +135,18 @@ function displaySearchResults(rooms) {
             resultsSection.appendChild(roomCard);
 
             roomCard.querySelector('.bookRoomButton').addEventListener('click', function() {
+                const startDate = document.getElementById('checkInDate').value; // Assuming you have an input with ID 'startDate'
+                const endDate = document.getElementById('checkOutDate').value; // Assuming you have an input with ID 'endDate'
+
+                if (!startDate || !endDate) {
+                    alert('Please select both start date and end date.');
+                    return; // Exit the function if dates are not provided
+                }
+
                 let roomId = this.getAttribute('data-room-id');
-                window.location.href = 'loginToBook.html?roomId=' + encodeURIComponent(roomId);
-            });               
+                window.sessionStorage.setItem('bookingDetails', JSON.stringify({ roomId, startDate, endDate }));
+                window.location.href = 'loginToBook.html';
+            });                 
         });
     }
 }
@@ -115,8 +174,15 @@ function signUp() {
             })
             .then(data => {
                 console.log('User created:', data);
-                window.location.href = './createBooking?SSN=' + encodeURIComponent(ssn);
-                window.location.href = 'index.html'; 
+
+                // Retrieving booking details from session storage
+                const bookingDetailsJson = window.sessionStorage.getItem('bookingDetails');
+                if (!bookingDetailsJson) {
+                    alert("Booking details are missing. Please ensure you have the necessary details before proceeding.");
+                    return;
+                }
+                const { startDate, endDate, roomId } = JSON.parse(bookingDetailsJson);
+                createBooking(startDate, endDate, roomId, event.target.elements['signupSSN'].value);
             })
             .catch(error => {
                 console.log('Error:', error);

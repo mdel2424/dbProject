@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Map;
 
-import dao.BookingSearchDAO;
+import dao.BookingDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -19,10 +19,10 @@ public class BookingServlet extends HttpServlet {
         
         // Get the arguments that are passed in the request
         Map<String, String[]> arguments = request.getParameterMap();
-        BookingSearchDAO bookingSearchDao = new BookingSearchDAO();
+        BookingDAO bookingDao = new BookingDAO();
         String jsonData;
         // Create the json response depending on the request
-        jsonData = bookingSearchDao.getBookingsFromQuery(arguments); // Method to fetch hotels by chain ID
+        jsonData = bookingDao.getBookingsFromQuery(arguments); // Method to fetch hotels by chain ID
 
         // Respond with the json object
         PrintWriter out = response.getWriter();

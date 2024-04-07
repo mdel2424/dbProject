@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Map;
 
-import dao.RoomSearchDAO;
+import dao.RoomDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -19,11 +19,11 @@ public class RoomServlet extends HttpServlet {
         
         // Get the arguments that are passed in the request
         Map<String, String[]> arguments = request.getParameterMap();
-        RoomSearchDAO roomSearchDao = new RoomSearchDAO();
+        RoomDAO roomDao = new RoomDAO();
         String jsonData;
 
         // Create the json response depending on the request
-        jsonData = roomSearchDao.getRoomsFromQuery(arguments); // Method to fetch hotels by chain ID
+        jsonData = roomDao.getRoomsFromQuery(arguments); // Method to fetch hotels by chain ID
 
         // Respond with the json object
         PrintWriter out = response.getWriter();
