@@ -22,7 +22,7 @@ public class CreateBookingServlet extends HttpServlet {
             int clientId = Integer.parseInt(request.getParameter("clientId"));
             Date startDate = Date.valueOf(request.getParameter("startDate")); // Expected format: yyyy-mm-dd
             Date endDate = Date.valueOf(request.getParameter("endDate")); // Expected format: yyyy-mm-dd
-            int roomId = ThreadLocalRandom.current().nextInt(1, 201); // Randomly assigns a room ID between 1 and 200
+            int roomId = Integer.parseInt(request.getParameter("roomId")); // Randomly assigns a room ID between 1 and 200
             
             Booking booking = new Booking();
             booking.setStatus("Reserved");

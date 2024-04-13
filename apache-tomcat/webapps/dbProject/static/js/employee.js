@@ -131,6 +131,7 @@ function displaySearchResults(bookings) {
                     <div class="search-body">
                         <p>Name: ${booking.clientName}</p>
                         <p>Room Number: ${booking.roomNumber}</p>
+                        <p>Room Id: ${booking.roomId}</p>
                         <p>Start Date: ${booking.startDate}</p>
                         <p>End Date: ${booking.endDate}</p>
                         ${buttonHTML}

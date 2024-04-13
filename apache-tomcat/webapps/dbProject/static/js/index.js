@@ -118,6 +118,7 @@ function displaySearchResults(rooms) {
                 <div class="search-card">
                 <div class="search-header">
                     <h3>Room ID: ${room.roomId}</h3>
+                    <h3>Room Number: ${room.roomNumber}</h3>
                 </div>
                 <div class="search-body">
                     <p>Damages: ${room.location}</p>
